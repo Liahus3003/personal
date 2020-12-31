@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: Rubik;
+    src: url(assets/Fonts/Rubik/Rubik-Bold.ttf) format("truetype");
+  }
+  @font-face {
+    font-family: Rubik--BoldItalic;
+    src: url(assets/Fonts/Rubik/Rubik-BoldItalic.ttf) format("truetype");
+  }
+  @font-face {
+    font-family: Rubik-Italic;
+    src: url(assets/Fonts/Rubik/Rubik-Italic.ttf) format("truetype");
+  }
+  @font-face {
+    font-family: Rubik-Regular;
+    src: url(assets/Fonts/Rubik/Rubik-Regular.ttf) format("truetype");
+  }
+
+  body {
+      font-family  : Rubik-Regular;
+      font-size: 14px;
+  }
+
+  .button {
+    font-family  : Rubik-Regular;
+    border-radius: 4px;
+    background-color: #17a8e0;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 14px;
+    padding: 10px 16px;
+    max-width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .button:hover span {
+    padding-right: 25px;
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }

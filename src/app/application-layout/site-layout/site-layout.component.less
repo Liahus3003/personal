@@ -1,0 +1,52 @@
+.site-layout {
+    margin-top: 75px;
+}
+.site-navigation {
+    width: 200px;
+    background: black;
+    color: white;
+    height: 100%;
+    transition: .5s linear 0.1s;
+    position: fixed;
+    top: 72px;
+    z-index: 1;
+    ul li {
+        list-style: none;
+        padding: 10px;
+    }
+    ul li:hover {
+        color: black;
+        background: whitesmoke;
+        cursor: pointer;
+    }
+}
+.navbar-toggler {
+    background-color: white;
+    position: fixed;
+    top: 72px;
+    transition: .5s linear 0.1s;
+}
+.navOpen + .navbar-toggler {
+    left: 190px;  
+}
+.navClose + .navbar-toggler {
+    left: 0px;  
+}
+.menuOpen {
+    padding-left: 235px !important;
+    transition: 1s linear 0.1s;
+}
+.navOpen {
+    transform: translateX(0%);
+}
+.navClose {
+    transform: translateX(-100%);
+}
+.site-flow {
+    min-height: 400px;
+}
+// .navbar-toggler {
+//     position: absolute;
+//     top: 72px;
+//     left: 190px;
+// }

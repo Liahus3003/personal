@@ -1,0 +1,23 @@
+<div class="site-layout">
+    <div appClickOutside (clickOutside)="onClickedOutside($event)">
+        <div class="site-navigation" [class.navOpen]="isNavOpen" [class.navClose]="!isNavOpen" >
+            <ul class="p-0">
+                <li routerLink="/dashboard"><i class="fas fa-tachometer-alt p-2"></i> Dashboard</li>
+                <li routerLink="/my-profile"><i class="fas fa-user p-2"></i> Profile</li>
+                <li routerLink="/appreciations"><i class="fas fa-thumbs-up p-2"></i> Client Appreciations</li>
+                <li routerLink="/coding"><i class="fas fa-percentage p-2"></i>Courses</li>
+                <li routerLink="/our-services"><i class="fas fa-th-list p-2"></i> Our Services</li>
+                <li routerLink="/network"><i class="fas fa-globe p-2"></i> Your Network</li>
+                <li routerLink="/locations"><i class="fas fa-address-book p-2"></i> MLM Locations</li>
+                <li><i class="fas fa-sign-out-alt p-2"></i> Logout</li>
+            </ul>
+        </div>
+        <button class="navbar-toggler toggler-example" type="button" (click)="isNavOpen = !isNavOpen;" aria-label="Toggle navigation">
+            <span [class.d-none] = "isNavOpen"><i class="fas fa-bars fa-1x"></i></span>
+            <span [class.d-none] = "!isNavOpen"><i class="fas fa-times"></i></span>
+        </button>
+    </div>
+    <div class="site-flow px-5" [class.menuOpen] = "isNavOpen">
+    <router-outlet></router-outlet>
+    </div>
+</div>

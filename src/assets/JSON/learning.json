@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "JavaScript",
+        "sortOrder": 4,
+        "description": "Paradigm: event-driven, functional, imperative First appeared: December 4, 1995; 24 years ago"
+    },
+    {
+        "id": 2,
+        "name": "Java",
+        "sortOrder": 3,
+        "description": "Typing discipline: Static, strong, safe, nominative. First appeared: May 23, 1995; 25 years ago. Stable release: Java SE 14 / March 17, 2020; 4 months ago. Designed by: James Gosling. Developer: Oracle Corporation et al"
+    },
+    {
+        "id": 3,
+        "name": "MySql",
+        "sortOrder": 5,
+        "description": "MySQL is an open-source relational database management system. Written in: C, C++. Developed by: Oracle Corporation."
+    },
+    {
+        "id": 4,
+        "name": "Angular",
+        "sortOrder": 1,
+        "description": "Angular is a TypeScript-based open-source web application framework led by the Angular Team at Google and by a community of individuals and corporations"
+    },
+    {
+        "id": 5,
+        "name": "CSS",
+        "sortOrder": 2,
+        "description": "CSS frameworks are pre-prepared libraries that are meant to allow for easier, more standards-compliant styling of web pages using the Cascading Style Sheets language. CSS frameworks include Blueprint, Bootstrap, Cascade Framework, Foundation and Materialize."
+    },
+    {
+        "id": 6,
+        "name": "React",
+        "sortOrder": 6,
+        "description": "React is an open-source JavaScript library for building user interfaces or UI components. It is maintained by Facebook and a community of individual developers and companies."
+    }
+]
