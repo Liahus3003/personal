@@ -16,13 +16,28 @@
     src: url(assets/Fonts/Rubik/Rubik-Regular.ttf) format("truetype");
   }
 
+  @font-face {
+    font-family: roboto-regular;
+    src: url(assets/Fonts/Roboto/Roboto-Regular.ttf) format("truetype");
+  }
+
+  @font-face {
+    font-family: roboto-bold;
+    src: url(assets/Fonts/Roboto/Roboto-Bold.ttf) format("truetype");
+  }
+
+  @font-face {
+    font-family: roboto-light;
+    src: url(assets/Fonts/Roboto/Roboto-Light.ttf) format("truetype");
+  }
+
   body {
-      font-family  : Rubik-Regular;
+      font-family  : roboto-regular;
       font-size: 14px;
   }
 
   .button {
-    font-family  : Rubik-Regular;
+    font-family  : roboto-regular;
     border-radius: 4px;
     background-color: #17a8e0;
     border: none;
@@ -59,4 +74,8 @@
   .button:hover span:after {
     opacity: 1;
     right: 0;
+  }
+
+  .pointer {
+    cursor: pointer;
   }

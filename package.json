@@ -22,9 +22,9 @@
     "@angular/platform-browser-dynamic": "^11.2.9",
     "@angular/router": "^11.2.9",
     "@fortawesome/fontawesome-free": "^5.14.0",
-    "bootstrap": "^5.0.0-alpha1",
+    "bootstrap": "^5.0.0-beta3",
     "core-js": "^3.2.1",
-    "rxjs": "^6.5.3",
+    "rxjs": "^6.6.7",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },

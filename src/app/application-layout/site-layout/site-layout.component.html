@@ -1,5 +1,5 @@
 <div class="site-layout">
-    <div appClickOutside (clickOutside)="onClickedOutside($event)">
+    <!-- <div appClickOutside (clickOutside)="onClickedOutside($event)">
         <div class="site-navigation" [class.navOpen]="isNavOpen" [class.navClose]="!isNavOpen" >
             <ul class="p-0">
                 <li routerLink="/dashboard"><i class="fas fa-tachometer-alt p-2"></i> Dashboard</li>
@@ -16,8 +16,8 @@
             <span [class.d-none] = "isNavOpen"><i class="fas fa-bars fa-1x"></i></span>
             <span [class.d-none] = "!isNavOpen"><i class="fas fa-times"></i></span>
         </button>
-    </div>
-    <div class="site-flow px-5" [class.menuOpen] = "isNavOpen">
+    </div> -->
+    <div class="site-flow " [class.menuOpen] = "isNavOpen">
     <router-outlet></router-outlet>
     </div>
 </div>
