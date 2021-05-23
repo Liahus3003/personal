@@ -25,4 +25,12 @@ export class PortfolioComponent implements OnInit {
     window.scrollTo(0, 0);
   }
 
+  hasAppeared(sectionIdentifier: string, elementRef: HTMLElement) {
+    if (sectionIdentifier === 'odd') {
+      elementRef.classList.add('animate-odd-block');
+    } else {
+      elementRef.classList.add('animate-even-block');
+    }
+  }
+
 }
