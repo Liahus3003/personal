@@ -1,8 +1,7 @@
 <div class="layout" id="top">
-  <div>Add Translation</div>
-  <div class="content-block row mx-0 p-3 my-3">
-    <div class="col-12">
-      <div class="intro-section my-5">
+  <div class="content-block row mx-0 p-3">
+    <div class="col-12 mb-5">
+      <div class="intro-section">
         <h1 class="name">
           <img
             class="title-img"
@@ -11,13 +10,29 @@
           />
           <span class="d-inline-block px-3">Suhail Shariff</span>
         </h1>
-        <p class="description">
-          Software Engineer with working experience in JavaScript, Angular and
-          Spring boot
-        </p>
       </div>
     </div>
-    <div class="col-9 px-3 main-content">
+    <div class="row px-3 brief-section mx-auto">
+      <div class="profile-pic col-12 col-md-5">
+        <span class="profile-pic--container">
+          <img
+            class="img-block"
+            src="../../../assets/Images/suhail-profile-dp.jpg"
+            alt="profile-picture"
+          />
+        </span>
+      </div>
+      <div class="col-12 col-md-7 p-5">
+        <p class="role">Software Developer</p>
+        <p class="name">Suhail Shariff</p>
+        <p class="description">Software Engineer with working experience in JavaScript, Angular and
+          Spring boot</p>
+        <div>
+          <a class="btn btn-primary site-button" href="">Download CV</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 px-3 main-content">
       <div class="my-5" #block1 (deferLoad)="hasAppeared('odd', block1)">
         <h2>Work Experience</h2>
         <div class="timeline">
@@ -47,7 +62,7 @@
       </div>
       <hr />
       <div class="my-5" #block2 (deferLoad)="hasAppeared('even', block2)">
-        <h2>Technologies worked on</h2>
+        <h2>Technologies Worked On</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -135,7 +150,7 @@
       </div>
       <hr />
       <div class="my-5" #block4 (deferLoad)="hasAppeared('even', block4)">
-        <h2>Educational qualification</h2>
+        <h2>Educational Qualification</h2>
         <div class="timeline">
           <div class="container left mx-0">
             <div class="content">
@@ -161,27 +176,6 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="col-3 px-3">
-      <div class="profile-pic">
-        <span class="profile-pic--container">
-          <img
-            class="img-block"
-            src="../../../assets/Images/suhail-profile-dp.jpg"
-            alt="profile-picture"
-          />
-        </span>
-      </div>
-      <div class="neuromorphic my-3">
-        Based in India
-        <img
-          class="flag-img"
-          src="../../../assets/Images/in.svg"
-          alt="IND_Flag"
-        />
-      </div>
-      <div class="neuromorphic my-3">{{ age }} years old</div>
-      <div class="neuromorphic my-3">Working since June 2017</div>
     </div>
   </div>
 </div>

@@ -36,6 +36,15 @@
       font-size: 14px;
   }
 
+  .site-button {
+    font-family: roboto-regular;
+    border-radius: 30px;
+    padding: 10px 30px;
+    font-size: 16px;
+    line-height: 20px;
+    box-shadow: 0 10px 10px -8px rgb(0 0 0 / 78%);
+  }
+
   .button {
     font-family  : roboto-regular;
     border-radius: 4px;
