@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "SSLC",
+        "institution": "Bishop Corrie A.I Higher Secondary School",
+        "year": "2011",
+        "percentage": 89.6
+    },
+    {
+        "id": 2,
+        "name": "HSC",
+        "institution": "Bishop Corrie A.I Higher Secondary School",
+        "year": "2013",
+        "percentage": 84.6
+    },
+    {
+        "id": 3,
+        "name": "B.E CSE",
+        "institution": "Aalim Muhammed Salegh College of Engineering",
+        "year": "2017",
+        "percentage": 82.4
+    }
+]

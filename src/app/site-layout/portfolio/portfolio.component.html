@@ -3,11 +3,7 @@
     <div class="col-12 mb-5">
       <div class="intro-section">
         <h1 class="name">
-          <img
-            class="title-img"
-            src="../../../assets/Images/animated-image.jpg"
-            alt="profile-picture"
-          />
+          <img class="title-img" src="../../../assets/Images/animated-image.jpg" alt="profile-picture" />
           <span class="d-inline-block px-3">Suhail Shariff</span>
         </h1>
       </div>
@@ -15,163 +11,98 @@
     <div class="row px-3 brief-section mx-auto">
       <div class="profile-pic col-12 col-md-5">
         <span class="profile-pic--container">
-          <img
-            class="img-block"
-            src="../../../assets/Images/suhail-profile-dp.jpg"
-            alt="profile-picture"
-          />
+          <img class="img-block" src="../../../assets/Images/suhail-profile-dp.jpg" alt="profile-picture" />
         </span>
       </div>
       <div class="col-12 col-md-7 p-5">
         <p class="role">Software Developer</p>
         <p class="name">Suhail Shariff</p>
-        <p class="description">Software Engineer with working experience in JavaScript, Angular and
-          Spring boot</p>
+        <p class="description">
+          Software Engineer with working experience in JavaScript, Angular and
+          Spring boot
+        </p>
         <div>
           <a class="btn btn-primary site-button" href="">Download CV</a>
         </div>
       </div>
     </div>
     <div class="col-12 px-3 main-content">
-      <div class="my-5" #block1 (deferLoad)="hasAppeared('odd', block1)">
-        <h2>Work Experience</h2>
+      <div class="my-5 work-experience" #block1 (deferLoad)="hasAppeared('odd', block1)">
+        <h2 class="text-center">Work Experience</h2>
         <div class="timeline">
-          <div class="container left mx-0">
+          <div class="container mx-0" [class.right]="i % 2 === 0" [class.left]="i % 2 !== 0"
+            *ngFor="let experience of workExperiences; index as i">
             <div class="content">
-              <h2>2017</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip ex ea commodo consequat. Duis aute irure dolor in
-                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                pariatur</p>
-            </div>
-          </div>
-          <div class="container right mx-0">
-            <div class="content">
-              <h2>2016</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip ex ea commodo consequat. Duis aute irure dolor in
-                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                pariatur</p>
+              <span class="role-info">{{ experience.role }} - {{ experience.organization }}</span><br>
+              <span class="d-inline-block py-2">{{experience.startDate}} - <span *ngIf="!experience.currentlyActive;else current">{{experience.endDate}}</span></span>
+              <ng-template #current>Current</ng-template>
+              <div class="role">
+                <ul class="">
+                  <li *ngFor="let work of experience?.workInfo">{{work.description}}</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </div>
       <hr />
-      <div class="my-5" #block2 (deferLoad)="hasAppeared('even', block2)">
-        <h2>Technologies Worked On</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur
-        </p>
+      <div class="my-5 tech-stack text-center" #block2 (deferLoad)="hasAppeared('even', block2)">
+        <h2 class="my-3">Tech Stack</h2>
+        <div class="row justify-content-center">
+          <div class="col-4 my-3" [class.inactive]="!tech.active" *ngFor="
+              let tech of techStack
+                | filter: 'type':'language'
+                | sortOrder: 'sortOrder'
+            ">
+            <picture>
+              <source srcset="{{assetsPath + tech.imgSrc}}" media="(min-width: 0px)" />
+              <img class="tech-image" src="data:," [title]="tech.name" [alt]="tech.name" loading="lazy" />
+            </picture>
+          </div>
+        </div>
+        <h3 class="my-3">Frameworks Experience</h3>
+        <div class="row justify-content-center">
+          <div class="col-4 my-3" [class.inactive]="!tech.active" *ngFor="
+              let tech of techStack
+                | filter: 'type':'framework'
+                | sortOrder: 'sortOrder'
+            ">
+            <picture>
+              <source srcset="{{assetsPath + tech.imgSrc}}" media="(min-width: 0px)" />
+              <img class="tech-image" src="data:," [title]="tech.name" [alt]="tech.name" loading="lazy" />
+            </picture>
+          </div>
+        </div>
       </div>
       <hr />
-      <div class="my-5" #block3 (deferLoad)="hasAppeared('odd', block3)">
-        <h2>Awards & Recognitions</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur
-        </p>
-      </div>
-      <hr />
-      <div class="my-5" #block4 (deferLoad)="hasAppeared('even', block4)">
-        <h2>Educational Qualification</h2>
-        <div class="timeline">
-          <div class="container left mx-0">
-            <div class="content">
-              <h2>2017</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip ex ea commodo consequat. Duis aute irure dolor in
-                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                pariatur</p>
+      <div class="my-5 awards" #block3 (deferLoad)="hasAppeared('odd', block3)">
+        <h2 class="text-center">Awards & Recognitions</h2>
+        <div class="row">
+          <div class="col-12 col-md-auto">
+            <picture>
+              <source srcset="{{assetsPath + '/Images/gold-medal.svg'}}" media="(min-width: 0px)" />
+              <img class="medal-image" src="data:," alt="award" loading="lazy" />
+            </picture>
+          </div>
+          <div class="col-12 col-md-auto py-4">
+            <div class="award-item mb-2" *ngFor="let award of awards">
+              {{ award.name }} - {{ award.company }}
             </div>
           </div>
-          <div class="container right mx-0">
+        </div>
+      </div>
+      <hr />
+      <div class="my-5 education" #block4 (deferLoad)="hasAppeared('even', block4)">
+        <h2 class="text-center">Educational Qualification</h2>
+        <div class="timeline">
+          <div class="container mx-0" [class.right]="i % 2 === 0" [class.left]="i % 2 !== 0"
+            *ngFor="let education of educationDetails; index as i">
             <div class="content">
-              <h2>2016</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip ex ea commodo consequat. Duis aute irure dolor in
-                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                pariatur</p>
+              <h2>{{ education.name }} - {{ education.year }}</h2>
+              <div>
+                {{ education.institution }}<br />
+                Passing % : {{ education.percentage }}
+              </div>
             </div>
           </div>
         </div>
@@ -179,7 +110,4 @@
     </div>
   </div>
 </div>
-<div
-  class="scroll-icon pointer fas fa-chevron-up"
-  (click)="scrollToTop()"
-></div>
+<div class="scroll-icon pointer fas fa-chevron-up" (click)="scrollToTop()"></div>

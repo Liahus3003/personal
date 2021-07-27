@@ -21,6 +21,9 @@
     "paths": {
       "@layout/*": [
         "app/site-layout/*"
+      ],
+      "@assets/*": [
+        "assets/*"
       ]
     },
     "module": "es2020",

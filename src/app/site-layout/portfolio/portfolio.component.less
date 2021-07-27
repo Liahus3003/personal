@@ -1,11 +1,10 @@
 .layout {
-  background-color: #10298c;
   color: #999;
-  width: 100%;
+  width: 1120px;
   min-height: 100vh;
   height: 100%;
   font-family: roboto-regular;
-  margin: 0 auto;
+  margin: 30px auto;
   font-size: 1rem;
   .content-block {
     background-color: #f2f3f7;
@@ -23,7 +22,7 @@
       }
     }
     .brief-section {
-      max-width: 66%;
+      max-width: 75%;
       .name {
         font-family: roboto-bold;
         font-size: 52px;
@@ -42,13 +41,40 @@
     }
     .main-content {
       overflow: hidden;
+      .tech-stack {
+        .inactive {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+        .tech-image {
+          width: 150px;
+          height: 150px;
+        }
+      }
+      .awards {
+        .medal-image {
+          width: 200px;
+          height: 200px;
+          margin: 35px;
+        }
+        .award-item {
+          font-size: 20px;
+          font-weight: 700;
+          color: #ffffff;
+          border-radius: 25px;
+          padding: 10px;
+          background-image: linear-gradient(to right, #fab62e, #949da3);
+        }
+      }
+      .work-experience {
+        .role-info {
+          font-size: 18px;
+          font-weight: 700;
+        }
+      }
     }
     .profile-pic {
       background: #f2f3f7;
-      box-shadow: -6px -6px 8px rgba(255, 255, 255, 0.9),
-        5px 5px 8px rgba(0, 0, 0, 0.07);
-      border-radius: 50%;
-      overflow: hidden;
       .profile-pic--container {
         display: block;
         box-shadow: -6px -6px 8px rgba(255, 255, 255, 0.9),

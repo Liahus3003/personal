@@ -1,0 +1,21 @@
+[
+    {
+        "id": 1,
+        "role": "Senior Software Engineer",
+        "organization": "NextSphere Technologies",
+        "startDate": "01-06-2017",
+        "endDate": null,
+        "currentlyActive": true,
+        "workInfo": [
+            {
+                "description": "Angular"
+            },
+            {
+                "description": "Spring Boot"
+            },
+            {
+                "description": "MySql"
+            }
+        ]
+    }
+]

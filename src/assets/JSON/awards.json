@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "name": "Employee of the Year (2018/19)",
+        "company": "NextSphere Technologies"
+    },
+    {
+        "id": 2,
+        "name": "Employee of the Month (March 2018)",
+        "company": "NextSphere Technologies"
+    }
+]
