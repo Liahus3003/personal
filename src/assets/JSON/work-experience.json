@@ -8,13 +8,13 @@
         "currentlyActive": true,
         "workInfo": [
             {
-                "description": "Angular"
+                "description": "Angular 10 framework to create Single Page Application (SPA) components. Define the purchase flow and designed site's static content."
             },
             {
-                "description": "Spring Boot"
+                "description": "Hands-on experience with Spring boot for developing RESTful CRUD operations for e-commerce transaction and purchase related info. Experience in using Kafka, Spring Batch, Spring Scheduler and Cloud configurations."
             },
             {
-                "description": "MySql"
+                "description": "Experience in MySql to query the DB and extract data related to e-commerce flows."
             }
         ]
     }

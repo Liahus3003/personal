@@ -1,5 +1,11 @@
-<div class="layout" id="top">
+<div class="layout" id="top" [ngClass] = "isDarkMode ? 'dark' : 'light'">
   <div class="content-block row mx-0 p-3">
+    <span class="view-mode">
+      <picture (click)="toggleViewMode()">
+        <source srcset="{{assetsPath + viewModeImgPath}}" media="(min-width: 0px)" />
+        <img class="view-img pointer" src="data:," title="view mode" alt="view-mode" loading="lazy" />
+      </picture>
+    </span>
     <div class="col-12 mb-5">
       <div class="intro-section">
         <h1 class="name">
@@ -18,11 +24,11 @@
         <p class="role">Software Developer</p>
         <p class="name">Suhail Shariff</p>
         <p class="description">
-          Software Engineer with working experience in JavaScript, Angular and
+          Software Developer with working experience in JavaScript, Angular and
           Spring boot
         </p>
         <div>
-          <a class="btn btn-primary site-button" href="">Download CV</a>
+          <a class="btn btn-primary site-button" target="_blank" href="{{assetsPath + resumePath}}">Download CV</a>
         </div>
       </div>
     </div>
@@ -78,7 +84,7 @@
       <div class="my-5 awards" #block3 (deferLoad)="hasAppeared('odd', block3)">
         <h2 class="text-center">Awards & Recognitions</h2>
         <div class="row">
-          <div class="col-12 col-md-auto">
+          <div class="col-12 col-md-auto text-center">
             <picture>
               <source srcset="{{assetsPath + '/Images/gold-medal.svg'}}" media="(min-width: 0px)" />
               <img class="medal-image" src="data:," alt="award" loading="lazy" />

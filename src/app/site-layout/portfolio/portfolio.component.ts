@@ -13,6 +13,9 @@ export class PortfolioComponent implements OnInit {
   educationDetails: unknown[] = [];
   workExperiences: unknown[] = [];
   assetsPath = "./../../../assets";
+  viewModeImgPath = '/Images/moon.svg';
+  isDarkMode = false;
+  resumePath = '/resume/Suhail_Resume_2021.pdf';
 
   constructor(private $siteLayoutService: SiteLayoutService) { }
 
@@ -60,6 +63,15 @@ export class PortfolioComponent implements OnInit {
     }, error => {
       console.error(error);
     });
+  }
+
+  toggleViewMode() {
+    this.isDarkMode = !this.isDarkMode;
+    if (this.isDarkMode) {
+      this.viewModeImgPath = '/Images/sun.svg';
+    } else {
+      this.viewModeImgPath = '/Images/moon.svg';
+    }
   }
 
   scrollToTop(): void {
