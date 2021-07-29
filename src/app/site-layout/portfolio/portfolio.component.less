@@ -16,7 +16,7 @@
 
 .layout {
   color: var(--title-content);
-  width: 1120px;
+  max-width: 1120px;
   min-height: 100vh;
   height: 100%;
   font-family: roboto-regular;
@@ -267,6 +267,9 @@
 /* Media queries - Responsive timeline on screens less than 600px wide */
 @media screen and (max-width: 600px) {
 
+  .layout {
+    margin: 16px 8px;
+  }
   .brief-section {
     max-width: 100%!important;
     .name {
@@ -298,7 +301,7 @@
     left: 60px;
     border: medium solid white;
     border-width: 10px 10px 10px 0;
-    border-color: transparent white transparent transparent;
+    border-color: transparent var(--timeline-bg-color) transparent transparent;
   }
 
   /* Make sure all circles are at the same spot */
