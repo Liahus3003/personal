@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SiteLayoutService } from '@layout/site-layout.service';
+import { Course } from '../interfaces/course.interface';
 
 @Component({
   selector: 'app-learning-base',
@@ -7,7 +8,7 @@ import { SiteLayoutService } from '@layout/site-layout.service';
   styleUrls: ['./learning-base.component.less']
 })
 export class LearningBaseComponent implements OnInit {
-  courses = null;
+  courses: Course[] = [];
 
   constructor(private $siteService: SiteLayoutService) { }
 
@@ -16,7 +17,7 @@ export class LearningBaseComponent implements OnInit {
   }
 
   getCourses(): void {
-    this.$siteService.getCourses().subscribe((response) => {
+    this.$siteService.getCourses().subscribe((response: Course[]) => {
       if (response) {
         this.courses = response;
       } else {

@@ -6,7 +6,7 @@ import {Directive, ElementRef, EventEmitter, Output} from '@angular/core';
 export class DeferLoadDirective {
     @Output() public deferLoad: EventEmitter<any> = new EventEmitter();
 
-    private _intersectionObserver? : IntersectionObserver;
+    private _intersectionObserver! : IntersectionObserver;
 
     constructor (
         private _element: ElementRef

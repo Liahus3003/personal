@@ -1,25 +1,31 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { SiteLayoutService } from '@layout/site-layout.service';
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { SiteLayoutService } from "@layout/site-layout.service";
+import { Award } from "./interface/award.interface";
+import { Education } from "./interface/education.interface";
+import { TechStack } from "./interface/tech-stack.interface";
+import { WorkExperience } from "./interface/work-experience.interface";
 
 @Component({
-  selector: 'app-portfolio',
-  templateUrl: './portfolio.component.html',
-  styleUrls: ['./portfolio.component.less']
+  selector: "app-portfolio",
+  templateUrl: "./portfolio.component.html",
+  styleUrls: ["./portfolio.component.less"],
 })
 export class PortfolioComponent implements OnInit {
-  age: number;
-  techStack: unknown[] = [];
-  awards: unknown[] = [];
-  educationDetails: unknown[] = [];
-  workExperiences: unknown[] = [];
+  age: number = 0;
+  techStack: TechStack[] = [];
+  awards: Award[] = [];
+  educationDetails: Education[] = [];
+  workExperiences: WorkExperience[] = [];
   assetsPath = "./../../../assets";
-  viewModeImgPath = '/Images/moon.svg';
+  viewModeImgPath = "/Images/moon.svg";
   isDarkMode = false;
-  resumePath = '/resume/Suhail_Resume_2021.pdf';
+  resumePath = "/resume/Suhail_Resume_2021.pdf";
 
-  constructor(private $siteLayoutService: SiteLayoutService,
-    private $router: Router) { }
+  constructor(
+    private $siteLayoutService: SiteLayoutService,
+    private $router: Router
+  ) {}
 
   ngOnInit(): void {
     this.calculate_age(new Date(1996, 2, 30));
@@ -29,50 +35,62 @@ export class PortfolioComponent implements OnInit {
     this.getWorkExperience();
   }
 
-  calculate_age(dob) { 
+  calculate_age(dob: Date) {
     var diff_ms = Date.now() - dob.getTime();
-    var age_dt = new Date(diff_ms); 
+    var age_dt = new Date(diff_ms);
     this.age = Math.abs(age_dt.getUTCFullYear() - 1970);
   }
 
   getTechStacks(): void {
-    this.$siteLayoutService.getTechStacks().subscribe((response: unknown[]) => {
-      this.techStack = response;
-    }, error => {
-      console.error(error);
-    });
+    this.$siteLayoutService.getTechStacks().subscribe(
+      (response: TechStack[]) => {
+        this.techStack = response;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
 
   getAwards() {
-    this.$siteLayoutService.getAwards().subscribe((response: unknown[]) => {
-      this.awards = response;
-    }, error => {
-      console.error(error);
-    });
+    this.$siteLayoutService.getAwards().subscribe(
+      (response: Award[]) => {
+        this.awards = response;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
 
   getEducation() {
-    this.$siteLayoutService.getEducation().subscribe((response: unknown[]) => {
-      this.educationDetails = response;
-    }, error => {
-      console.error(error);
-    });
+    this.$siteLayoutService.getEducation().subscribe(
+      (response: Education[]) => {
+        this.educationDetails = response;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
 
   getWorkExperience() {
-    this.$siteLayoutService.getWorkExperience().subscribe((response: unknown[]) => {
-      this.workExperiences = response;
-    }, error => {
-      console.error(error);
-    });
+    this.$siteLayoutService.getWorkExperience().subscribe(
+      (response: WorkExperience[]) => {
+        this.workExperiences = response;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
 
   toggleViewMode() {
     this.isDarkMode = !this.isDarkMode;
     if (this.isDarkMode) {
-      this.viewModeImgPath = '/Images/sun.svg';
+      this.viewModeImgPath = "/Images/sun.svg";
     } else {
-      this.viewModeImgPath = '/Images/moon.svg';
+      this.viewModeImgPath = "/Images/moon.svg";
     }
   }
 
@@ -85,11 +103,10 @@ export class PortfolioComponent implements OnInit {
   }
 
   hasAppeared(sectionIdentifier: string, elementRef: HTMLElement) {
-    if (sectionIdentifier === 'odd') {
-      elementRef.classList.add('animate-odd-block');
+    if (sectionIdentifier === "odd") {
+      elementRef.classList.add("animate-odd-block");
     } else {
-      elementRef.classList.add('animate-even-block');
+      elementRef.classList.add("animate-even-block");
     }
   }
-
 }

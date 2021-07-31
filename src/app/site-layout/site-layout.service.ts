@@ -1,5 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Country } from './content/interfaces/country.interface';
+import { Observable } from 'rxjs';
+import { Course } from './learning/interfaces/course.interface';
+import { TechStack } from './portfolio/interface/tech-stack.interface';
+import { Award } from './portfolio/interface/award.interface';
+import { Education } from './portfolio/interface/education.interface';
+import { WorkExperience } from './portfolio/interface/work-experience.interface';
 
 @Injectable({
   providedIn: 'any'}
@@ -8,27 +15,27 @@ export class SiteLayoutService {
 
   constructor(private http:HttpClient) { }
 
-    getCountries() {
-        return this.http.get('../../../assets/JSON/countries.json');
+    getCountries(): Observable<Country[]> {
+        return this.http.get<Country[]>('../../../assets/JSON/countries.json');
     }
 
-    getCourses() {
-      return this.http.get('./../../assets/JSON/learning.json');
+    getCourses(): Observable<Course[]> {
+      return this.http.get<Course[]>('./../../assets/JSON/learning.json');
     }
 
-    getTechStacks() {
-      return this.http.get('./../../assets/JSON/tech-stack.json');
+    getTechStacks(): Observable<TechStack[]> {
+      return this.http.get<TechStack[]>('./../../assets/JSON/tech-stack.json');
     }
 
-    getAwards() {
-      return this.http.get('./../../assets/JSON/awards.json');
+    getAwards(): Observable<Award[]> {
+      return this.http.get<Award[]>('./../../assets/JSON/awards.json');
     }
 
-    getEducation() {
-      return this.http.get('./../../assets/JSON/education.json');
+    getEducation(): Observable<Education[]> {
+      return this.http.get<Education[]>('./../../assets/JSON/education.json');
     }
 
-    getWorkExperience() {
-      return this.http.get('./../../assets/JSON/work-experience.json');
+    getWorkExperience(): Observable<WorkExperience[]> {
+      return this.http.get<WorkExperience[]>('./../../assets/JSON/work-experience.json');
     }
 }

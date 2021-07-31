@@ -17,14 +17,16 @@ export class SiteLayoutAppreciationComponent implements OnInit {
     event.preventDefault();
   }
 
-  drag(event) {
-    event.dataTransfer.setData("text", event.target.id);
+  drag(event: DragEvent) {
+    event.dataTransfer && event.dataTransfer.setData("text", (<HTMLElement>event.target).id);
   }
 
-  drop(event) {
+  drop(event: DragEvent) {
     event.preventDefault();
-    var data = event.dataTransfer.getData("text");
-    event.target.appendChild(document.getElementById(data));
+    if (event.dataTransfer) {
+      const data = event.dataTransfer.getData("text");
+      (<HTMLElement>event.target).appendChild(document.getElementById(data) as Node);
+    }
   }
 
 }

@@ -1,17 +1,15 @@
-<p>
-  site-layout-locations works!
-</p>
+<p>site-layout-locations works!</p>
 <div class="row">
-    <div class="col-6 countries-section" [class.d-none]="category.countries.length === 0" *ngFor = "let category of finalCountries;let i = index">
-        <div *ngIf = "category.countries.length > 0">
-            <h1 class="country-category">
-                {{category.category}}
-            </h1>
-            <ul>
-              <li *ngFor="let countries of category.countries">
-              {{countries.countryName}}
-              </li>
-            </ul>
-        </div>
-      </div>
+  <ng-container *ngFor="let category of finalCountries; let i = index">
+    <div class="col-6 countries-section" *ngIf="category.countries?.length">
+      <h1 class="country-category">
+        {{ category.category }}
+      </h1>
+      <ul>
+        <li *ngFor="let countries of category.countries">
+          {{ countries.countryName }}
+        </li>
+      </ul>
+    </div>
+  </ng-container>
 </div>

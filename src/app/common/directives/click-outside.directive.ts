@@ -9,7 +9,7 @@ export class ClickOutsideDirective implements AfterViewInit, OnDestroy {
     }
     @Output()
     public clickOutside: EventEmitter<boolean> = new EventEmitter<boolean>();
-    isActive: boolean;
+    isActive: boolean = false;
     /**
      * register a click event for a element having clickOutside attribute
      * @param  {MouseEvent} event

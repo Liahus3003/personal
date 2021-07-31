@@ -14,7 +14,7 @@ export class OnlyNumberDirective {
 
   }
 
-  @Input() OnlyNumber: string;
+  @Input() OnlyNumber: string = '';
 
   @HostListener('blur', ['$event']) onBlur(event: any) {
     const ch = String.fromCharCode(event.keyCode);
