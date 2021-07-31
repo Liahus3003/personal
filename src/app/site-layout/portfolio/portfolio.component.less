@@ -4,6 +4,8 @@
   --timeline-bg-color: #38254b;
   --profile-box-shadow-1: rgb(7 57 120 / 95%);
   --profile-box-shadow-2: rgba(0, 0, 0, 0.07);
+  --custom-button-bg-color: #fff;
+  --custom-button-border-color: #fff;
 }
 
 .light {
@@ -12,6 +14,8 @@
   --timeline-bg-color: #fff;
   --profile-box-shadow-1: rgba(255, 255, 255, 0.9);
   --profile-box-shadow-2: rgba(0, 0, 0, 0.07);
+  --custom-button-bg-color: #000;
+  --custom-button-border-color: #000;
 }
 
 .layout {
@@ -60,6 +64,11 @@
       }
       .description {
         font-weight: 300;
+      }
+      .custom-button {
+        background-color: var(--custom-button-bg-color);
+        border-color: var(--custom-button-border-color);
+        color: var(--layout-background);
       }
     }
     .main-content {

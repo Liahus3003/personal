@@ -8,9 +8,10 @@ import { LearningReactComponent } from './learning-react/learning-react.componen
 import { LearningMySqlComponent } from './learning-my-sql/learning-my-sql.component';
 import { LearningJavaComponent } from './learning-java/learning-java.component';
 import { LearningAngularComponent } from './learning-angular/learning-angular.component';
+import { LearningBaseComponent } from './learning-base/learning-base.component';
 
 @NgModule({
-    declarations: [SiteLayoutLearningComponent, LearningJavaScriptComponent, LearningCSSComponent, LearningReactComponent, LearningMySqlComponent, LearningJavaComponent, LearningAngularComponent],
+    declarations: [SiteLayoutLearningComponent, LearningJavaScriptComponent, LearningCSSComponent, LearningReactComponent, LearningMySqlComponent, LearningJavaComponent, LearningAngularComponent, LearningBaseComponent],
     imports: [LearnRoutingModule, CommonModule]
 })
 

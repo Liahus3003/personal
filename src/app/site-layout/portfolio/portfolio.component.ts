@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SiteLayoutService } from '@layout/site-layout.service';
 
 @Component({
@@ -17,7 +18,8 @@ export class PortfolioComponent implements OnInit {
   isDarkMode = false;
   resumePath = '/resume/Suhail_Resume_2021.pdf';
 
-  constructor(private $siteLayoutService: SiteLayoutService) { }
+  constructor(private $siteLayoutService: SiteLayoutService,
+    private $router: Router) { }
 
   ngOnInit(): void {
     this.calculate_age(new Date(1996, 2, 30));
@@ -72,6 +74,10 @@ export class PortfolioComponent implements OnInit {
     } else {
       this.viewModeImgPath = '/Images/moon.svg';
     }
+  }
+
+  navigateToInternalSite(): void {
+    this.$router.navigateByUrl("/learning");
   }
 
   scrollToTop(): void {

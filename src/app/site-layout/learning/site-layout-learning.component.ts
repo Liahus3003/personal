@@ -7,24 +7,12 @@ import { SiteLayoutService } from '@layout/site-layout.service';
   styleUrls: ['./site-layout-learning.component.less']
 })
 export class SiteLayoutLearningComponent implements OnInit {
-  courses = null
+  courses = null;
+  year = new Date().getFullYear();
 
-  constructor(private $siteService: SiteLayoutService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.getCourses();
-  }
-
-  getCourses(): void {
-    this.$siteService.getCourses().subscribe((response) => {
-      if (response) {
-        this.courses = response;
-      } else {
-        this.courses = [];
-      }
-    }, (error) => {
-      this.courses = [];
-    });
   }
 
 }

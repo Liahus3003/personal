@@ -1,23 +1,42 @@
-<div class="layout" id="top" [ngClass] = "isDarkMode ? 'dark' : 'light'">
+<div class="layout" id="top" [ngClass]="isDarkMode ? 'dark' : 'light'">
   <div class="content-block row mx-0 p-3">
     <span class="view-mode">
       <picture (click)="toggleViewMode()">
-        <source srcset="{{assetsPath + viewModeImgPath}}" media="(min-width: 0px)" />
-        <img class="view-img pointer" src="data:," title="view mode" alt="view-mode" loading="lazy" />
+        <source
+          srcset="{{assetsPath + viewModeImgPath}}"
+          media="(min-width: 0px)"
+        />
+        <img
+          class="view-img pointer"
+          src="data:,"
+          title="view mode"
+          alt="view-mode"
+          loading="lazy"
+        />
       </picture>
     </span>
     <div class="col-12 mb-5">
       <div class="intro-section">
         <h1 class="name">
-          <img class="title-img" src="../../../assets/Images/animated-image.jpg" alt="profile-picture" />
-          <span class="d-inline-block px-3">Suhail Shariff</span>
+          <span class="pointer" (click)="navigateToInternalSite()">
+            <img
+              class="title-img"
+              src="../../../assets/Images/animated-image.jpg"
+              alt="profile-picture"
+            />
+            <span class="d-inline-block px-3">Suhail Shariff</span>
+          </span>
         </h1>
       </div>
     </div>
     <div class="row px-0 px-md-3 brief-section mx-auto">
       <div class="profile-pic col-12 col-md-5">
         <span class="profile-pic--container">
-          <img class="img-block" src="../../../assets/Images/suhail-profile-dp.jpg" alt="profile-picture" />
+          <img
+            class="img-block"
+            src="../../../assets/Images/suhail-profile-dp.jpg"
+            alt="profile-picture"
+          />
         </span>
       </div>
       <div class="col-12 col-md-7 p-3 p-md-5">
@@ -28,23 +47,45 @@
           Spring boot
         </p>
         <div>
-          <a class="btn btn-primary site-button" target="_blank" href="{{assetsPath + resumePath}}">Download CV</a>
+          <a
+            class="btn btn-primary site-button custom-button"
+            target="_blank"
+            href="{{ assetsPath + resumePath }}"
+            >Download CV</a
+          >
         </div>
       </div>
     </div>
     <div class="col-12 px-0 px-md-3 main-content">
-      <div class="my-5 work-experience" #block1 (deferLoad)="hasAppeared('odd', block1)">
+      <div
+        class="my-5 work-experience"
+        #block1
+        (deferLoad)="hasAppeared('odd', block1)"
+      >
         <h2 class="text-center">Work Experience</h2>
         <div class="timeline">
-          <div class="container mx-0" [class.right]="i % 2 === 0" [class.left]="i % 2 !== 0"
-            *ngFor="let experience of workExperiences; index as i">
+          <div
+            class="container mx-0"
+            [class.right]="i % 2 === 0"
+            [class.left]="i % 2 !== 0"
+            *ngFor="let experience of workExperiences; index as i"
+          >
             <div class="content">
-              <span class="role-info">{{ experience.role }} - {{ experience.organization }}</span><br>
-              <span class="d-inline-block py-2">{{experience.startDate}} - <span *ngIf="!experience.currentlyActive;else current">{{experience.endDate}}</span></span>
+              <span class="role-info"
+                >{{ experience.role }} - {{ experience.organization }}</span
+              ><br />
+              <span class="d-inline-block py-2"
+                >{{ experience.startDate }} -
+                <span *ngIf="!experience.currentlyActive; else current">{{
+                  experience.endDate
+                }}</span></span
+              >
               <ng-template #current>Current</ng-template>
               <div class="role">
                 <ul class="">
-                  <li *ngFor="let work of experience?.workInfo">{{work.description}}</li>
+                  <li *ngFor="let work of experience?.workInfo">
+                    {{ work.description }}
+                  </li>
                 </ul>
               </div>
             </div>
@@ -52,30 +93,60 @@
         </div>
       </div>
       <hr />
-      <div class="my-5 tech-stack text-center" #block2 (deferLoad)="hasAppeared('even', block2)">
+      <div
+        class="my-5 tech-stack text-center"
+        #block2
+        (deferLoad)="hasAppeared('even', block2)"
+      >
         <h2 class="my-3">Tech Stack</h2>
         <div class="row justify-content-center">
-          <div class="col-6 col-md-4 my-3" [class.inactive]="!tech.active" *ngFor="
+          <div
+            class="col-6 col-md-4 my-3"
+            [class.inactive]="!tech.active"
+            *ngFor="
               let tech of techStack
                 | filter: 'type':'language'
                 | sortOrder: 'sortOrder'
-            ">
+            "
+          >
             <picture>
-              <source srcset="{{assetsPath + tech.imgSrc}}" media="(min-width: 0px)" />
-              <img class="tech-image" src="data:," [title]="tech.name" [alt]="tech.name" loading="lazy" />
+              <source
+                srcset="{{assetsPath + tech.imgSrc}}"
+                media="(min-width: 0px)"
+              />
+              <img
+                class="tech-image"
+                src="data:,"
+                [title]="tech.name"
+                [alt]="tech.name"
+                loading="lazy"
+              />
             </picture>
           </div>
         </div>
         <h3 class="my-3">Frameworks Experience</h3>
         <div class="row justify-content-center">
-          <div class="col-6 col-md-4 my-3" [class.inactive]="!tech.active" *ngFor="
+          <div
+            class="col-6 col-md-4 my-3"
+            [class.inactive]="!tech.active"
+            *ngFor="
               let tech of techStack
                 | filter: 'type':'framework'
                 | sortOrder: 'sortOrder'
-            ">
+            "
+          >
             <picture>
-              <source srcset="{{assetsPath + tech.imgSrc}}" media="(min-width: 0px)" />
-              <img class="tech-image" src="data:," [title]="tech.name" [alt]="tech.name" loading="lazy" />
+              <source
+                srcset="{{assetsPath + tech.imgSrc}}"
+                media="(min-width: 0px)"
+              />
+              <img
+                class="tech-image"
+                src="data:,"
+                [title]="tech.name"
+                [alt]="tech.name"
+                loading="lazy"
+              />
             </picture>
           </div>
         </div>
@@ -86,8 +157,16 @@
         <div class="row">
           <div class="col-12 col-md-auto text-center">
             <picture>
-              <source srcset="{{assetsPath + '/Images/gold-medal.svg'}}" media="(min-width: 0px)" />
-              <img class="medal-image" src="data:," alt="award" loading="lazy" />
+              <source
+                srcset="{{assetsPath + '/Images/gold-medal.svg'}}"
+                media="(min-width: 0px)"
+              />
+              <img
+                class="medal-image"
+                src="data:,"
+                alt="award"
+                loading="lazy"
+              />
             </picture>
           </div>
           <div class="col-12 col-md-auto py-4">
@@ -98,11 +177,19 @@
         </div>
       </div>
       <hr />
-      <div class="my-5 education" #block4 (deferLoad)="hasAppeared('even', block4)">
+      <div
+        class="my-5 education"
+        #block4
+        (deferLoad)="hasAppeared('even', block4)"
+      >
         <h2 class="text-center">Educational Qualification</h2>
         <div class="timeline">
-          <div class="container mx-0" [class.right]="i % 2 === 0" [class.left]="i % 2 !== 0"
-            *ngFor="let education of educationDetails; index as i">
+          <div
+            class="container mx-0"
+            [class.right]="i % 2 === 0"
+            [class.left]="i % 2 !== 0"
+            *ngFor="let education of educationDetails; index as i"
+          >
             <div class="content">
               <h2>{{ education.name }} - {{ education.year }}</h2>
               <div>
@@ -116,4 +203,7 @@
     </div>
   </div>
 </div>
-<div class="scroll-icon pointer fas fa-chevron-up" (click)="scrollToTop()"></div>
+<div
+  class="scroll-icon pointer fas fa-chevron-up"
+  (click)="scrollToTop()"
+></div>
