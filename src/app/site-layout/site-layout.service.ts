@@ -7,6 +7,9 @@ import { TechStack } from './portfolio/interface/tech-stack.interface';
 import { Award } from './portfolio/interface/award.interface';
 import { Education } from './portfolio/interface/education.interface';
 import { WorkExperience } from './portfolio/interface/work-experience.interface';
+import { Users } from './learning/interfaces/users.interface';
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { Search } from './learning/interfaces/search.interface';
 
 @Injectable({
   providedIn: 'any'}
@@ -37,5 +40,20 @@ export class SiteLayoutService {
 
     getWorkExperience(): Observable<WorkExperience[]> {
       return this.http.get<WorkExperience[]>('./../../assets/JSON/work-experience.json');
+    }
+
+    getUsers(pageNumber: number): Observable<Users> {
+      return this.http.get<Users>('https://reqres.in/api/users?page=' + pageNumber);
+    }
+
+    search(terms: Observable<string>) {
+      return terms.pipe(debounceTime(400),
+      distinctUntilChanged(),
+      switchMap(term => this.searchEntries(term)));
+    }
+  
+    searchEntries(term: string): Observable<Search> {
+      return this.http
+          .get<Search>('https://api.cdnjs.com/libraries' + '?search=' + term);
     }
 }

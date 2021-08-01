@@ -8,6 +8,7 @@ import { LearningReactComponent } from "./learning-react/learning-react.componen
 import { LearningMySqlComponent } from "./learning-my-sql/learning-my-sql.component";
 import { LearningAngularComponent } from "./learning-angular/learning-angular.component";
 import { LearningBaseComponent } from "./learning-base/learning-base.component";
+import { ChildNavigationComponent } from "./learning-angular/child-navigation/child-navigation.component";
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
       { path: "react", component: LearningReactComponent },
       { path: "mysql", component: LearningMySqlComponent },
       { path: "angular", component: LearningAngularComponent },
+      { path: "detail/:id", component: ChildNavigationComponent }
     ],
   },
 ];

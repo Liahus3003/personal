@@ -8,6 +8,8 @@ import { SiteLayoutComponent } from './application-layout/site-layout/site-layou
 import { PortfolioComponent } from './site-layout/portfolio/portfolio.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { RouteReuseStrategy } from '@angular/router';
+import { CacheRouteReuseStrategy } from './common/util/cache-route-reuse-strategy';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,10 @@ import { environment } from '../environments/environment';
     })
   ],
   exports: [],
-  providers: [SiteLayoutService],
+  providers: [SiteLayoutService,     {
+    provide: RouteReuseStrategy,
+    useClass: CacheRouteReuseStrategy,
+  },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

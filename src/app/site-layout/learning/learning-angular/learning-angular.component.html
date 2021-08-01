@@ -1,3 +1,49 @@
-<ul>
-    <li>Infinite Scroll</li>
-</ul>
+<div class="angular-container">
+  <ul>
+    <li class="pointer my-3" (click)="changeKey('scroll')">Infinite Scroll</li>
+    <li class="pointer my-3" (click)="changeKey('search')">RxJs Search</li>
+  </ul>
+  <div class="mobile-layout p-3">
+    <ng-container *ngIf="key === 'scroll' && users">
+      <infinite-scroll (scrolled)="onScroll()" style="min-height: 400px">
+        <div class="row mx-0">
+          <div
+          class="col-12 col-md-6 users-container my-4 pointer"
+          (click)="navigateToUser(user.id)"
+          *ngFor="let user of users; trackBy: userTrackBy"
+        >
+          <picture>
+            <source [srcset]="user.avatar" media="(min-width: 0px)" />
+            <img
+              alt=""
+              class="tech-image"
+              src="data:,"
+              [title]="user.first_name"
+              loading="lazy"
+            />
+          </picture>
+          <p>{{ user.first_name }}</p>
+          <p>{{ user.email }}</p>
+        </div>
+        </div>
+      </infinite-scroll>
+    </ng-container>
+    <ng-container *ngIf="key === 'search'">
+      <div class="row mx-0">
+        <input class="form-control" (keyup)="searchKeyword($event)" />
+        <ul *ngIf="results">
+          <li class="my-2" *ngFor="let result of results | slice: 0:9">
+            <a href="{{ result.latest }}" target="_blank">
+              {{ result.name }}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </ng-container>
+    <div *ngIf="!key" class="home-screen">
+      <p class="time">1:45</p>
+      <p class="date">Sunday, 1 August</p>
+    </div>
+    <span class="screen-button pointer" (click)="key = ''"></span>
+  </div>
+</div>

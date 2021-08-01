@@ -1,16 +1,16 @@
-import { Component, OnInit, Output, EventEmitter, ElementRef, ViewChild, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ElementRef, ViewChild, Input, OnDestroy, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'infinite-scroll',
   template: `<ng-content></ng-content><div #anchor></div>`,
   styleUrls: ['./infinite-scroll.component.css']
 })
-export class InfiniteScrollComponent implements OnInit, OnDestroy {
+export class InfiniteScrollComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() options = {};
   @Output() scrolled = new EventEmitter();
-  @ViewChild('anchor') anchor: ElementRef<HTMLElement>;
+  @ViewChild('anchor') anchor!: ElementRef<HTMLElement>;
 
-  private observer: IntersectionObserver;
+  private observer!: IntersectionObserver;
 
   constructor(private host: ElementRef) { }
 
@@ -19,6 +19,9 @@ export class InfiniteScrollComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit() {
     const options = {
       root: this.isHostScrollable() ? this.host.nativeElement : null,
       ...this.options
