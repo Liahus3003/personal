@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { SiteLayoutService } from '@layout/site-layout.service';
 
 @Component({
@@ -13,6 +13,16 @@ export class SiteLayoutLearningComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  @HostListener("window:scroll", ["$event"])
+  onWindowScroll() {
+    let element = document.querySelector(".header") as HTMLElement;
+    if (window.pageYOffset > element.clientHeight) {
+      element.classList.add("header-scroll");
+    } else {
+      element.classList.remove("header-scroll");
+    }
   }
 
 }

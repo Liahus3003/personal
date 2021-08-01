@@ -1,9 +1,9 @@
-<header class="header">
+<header class="header" #header>
   <span class="pointer" [routerLink]="['/portfolio']">
     <i class="fas fa-home"></i> Suhail's Inventory
   </span>
 </header>
-<div class="learning-container">
+<div class="learning-container" [style.padding-top.px]="header.offsetHeight">
   <router-outlet></router-outlet>
 </div>
 <footer class="footer">
