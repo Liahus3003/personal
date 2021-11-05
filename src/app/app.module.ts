@@ -10,12 +10,14 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { RouteReuseStrategy } from '@angular/router';
 import { CacheRouteReuseStrategy } from './common/util/cache-route-reuse-strategy';
+import { CustomModalComponent } from './common/modal/custom-modal/custom-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SiteLayoutComponent,
-    PortfolioComponent
+    PortfolioComponent,
+    CustomModalComponent,
   ],
   imports: [
     BrowserModule,

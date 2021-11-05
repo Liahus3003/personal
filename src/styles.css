@@ -36,6 +36,11 @@
       font-size: 14px;
   }
 
+  body.show-modal {
+    position: static;
+    overflow: hidden;
+  }
+
   .site-button {
     font-family: roboto-regular;
     border-radius: 30px;

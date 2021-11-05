@@ -3,7 +3,7 @@ import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import { PortfolioComponent } from '@layout/portfolio/portfolio.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/portfolio', pathMatch: 'full' },
+  { path: '', redirectTo: '/portfolio', pathMatch: 'full'},
   { path: 'portfolio', component: PortfolioComponent},
   { path: 'learning', 
     loadChildren: () => import('@layout/learning/learning.module').then(m => m.LearnModule)

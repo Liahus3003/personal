@@ -1,0 +1,26 @@
+<div class="custom-modal" *ngIf="isShown">
+  <div class="modal-container" [style.width]="getWidth">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4>{{ title }}</h4>
+        <span
+          *ngIf="close"
+          class="close-icon text-bold pointer"
+          (click)="hide()"
+          >X</span
+        >
+      </div>
+      <div class="modal-body">
+        <p>{{ content }}</p>
+      </div>
+      <div class="custom-modal-footer text-center my-4">
+        <button (click)="confirm()" class="btn btn-primary mx-2 m-auto" role="button">
+          <span>Confirm</span>
+        </button>
+        <button (click)="cancel()" class="btn btn-warning mx-2 m-auto" role="button">
+          <span>Cancel</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
