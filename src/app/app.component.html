@@ -1,9 +1,13 @@
-<ng-container *ngIf="isNetworkOn">
-    <app-custom-modal></app-custom-modal>
-    <div class="site-content">
+<div class="site-content">
+    <ng-container *ngIf="isNetworkOn">
+        <app-custom-modal></app-custom-modal>
         <app-site-layout class="content"></app-site-layout>
+    </ng-container>
+
+    <div *ngIf="!isNetworkOn" class="offline-content p-2 py-5 p-md-5">
+        <i class="fas fa-ghost icon"></i>
+        <div class="message py-2">
+            Ooops, you're Offline...
+        </div>
     </div>
-</ng-container>
-<div *ngIf="!isNetworkOn">
-    You are Offline!
 </div>

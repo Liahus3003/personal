@@ -21,7 +21,7 @@ export class PWAUpdateService {
   }
 
   promptUser(): void {
-    
+    this.ngsw.activateUpdate().then(() => document.location.reload());
+    alert('App Updated...');
   }
-
 }
