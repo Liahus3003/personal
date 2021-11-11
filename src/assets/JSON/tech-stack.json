@@ -45,7 +45,7 @@
     "sortOrder": 8,
     "type": "framework",
     "imgSrc": "/Images/tech/react.svg",
-    "active": false
+    "active": true
   },
   {
     "id": 7,
