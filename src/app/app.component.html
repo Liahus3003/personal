@@ -1,4 +1,9 @@
-<app-custom-modal></app-custom-modal>
-<div class="site-content">
-<app-site-layout class="content"></app-site-layout>
+<ng-container *ngIf="isNetworkOn">
+    <app-custom-modal></app-custom-modal>
+    <div class="site-content">
+        <app-site-layout class="content"></app-site-layout>
+    </div>
+</ng-container>
+<div *ngIf="!isNetworkOn">
+    You are Offline!
 </div>

@@ -33,10 +33,10 @@ export class AppComponent implements OnInit {
 
   updateNetworkStatus() {
     if(navigator.onLine && !this.isNetworkOn) {
-      console.log('is Online');
+      console.log('is Online!');
       this.isNetworkOn = true;
     } else if (!navigator.onLine) {
-      console.log('is Offline');
+      console.log('is Offline!');
       this.isNetworkOn = false;
     }
   }
