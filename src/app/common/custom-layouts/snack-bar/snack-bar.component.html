@@ -1,0 +1,11 @@
+<div *ngIf="config" class="content">
+    <p class="message">{{ config.message }}</p>
+    <div class="actions" *ngIf="config.showActions">
+        <button (click)="confirm()" class="btn btn-primary mx-2 m-auto" role="button">
+            <span>Okay</span>
+          </button>
+          <button (click)="cancel()" class="btn btn-warning mx-2 m-auto" role="button">
+            <span>Cancel</span>
+          </button>
+    </div>
+</div>

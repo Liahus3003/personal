@@ -10,7 +10,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { RouteReuseStrategy } from '@angular/router';
 import { CacheRouteReuseStrategy } from './common/util/cache-route-reuse-strategy';
-import { CustomModalComponent } from './common/modal/custom-modal/custom-modal.component';
+import { CustomModalComponent } from './common/custom-layouts/custom-modal/custom-modal.component';
+import { SnackBarComponent } from './common/custom-layouts/snack-bar/snack-bar.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { CustomModalComponent } from './common/modal/custom-modal/custom-modal.c
     SiteLayoutComponent,
     PortfolioComponent,
     CustomModalComponent,
+    SnackBarComponent
   ],
   imports: [
     BrowserModule,

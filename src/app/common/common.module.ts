@@ -13,7 +13,7 @@ import { SortOrderPipe } from "./pipes/sort-order.pipe";
     SlimScrollDirective,
     DeferLoadDirective,
     SortOrderPipe,
-    FilterPipe,
+    FilterPipe
   ],
   imports: [],
   exports: [
