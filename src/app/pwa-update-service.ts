@@ -22,6 +22,7 @@ export class PWAUpdateService {
       this.promptUser();
       console.log('Prompting update');
     });
+    console.log('Prompting update2');
   }
 
   promptUser(): void {
