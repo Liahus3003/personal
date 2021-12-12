@@ -18,8 +18,9 @@ export class PWAUpdateService {
   }
 
   checkForUpdate(): void {
-    this.ngsw.versionUpdates.subscribe(() => {
+    this.ngsw.checkForUpdate().then(() => {
       this.promptUser();
+      console.log('Prompting update');
     });
   }
 
