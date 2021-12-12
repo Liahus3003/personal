@@ -4,17 +4,27 @@
         "role": "Senior Software Engineer",
         "organization": "NextSphere Technologies",
         "startDate": "01-06-2017",
+        "endDate": "09-09-2021",
+        "currentlyActive": false,
+        "workInfo": [
+            {
+                "description": "A suite of products to build and operate the multi-level marketing (MLM) business using Micro service-based Architecture."
+            },
+            {
+                "description": "It is a cluster of portals implemented using Angular 12 having independent micro services like Shopping Sites, Account, Enrolment, Admin portals, Stores, Product Catalogs, Order Management and Payment Systems to support worldwide markets."
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "role": "IT Analyst",
+        "organization": "TCS",
+        "startDate": "13-09-2021",
         "endDate": null,
         "currentlyActive": true,
         "workInfo": [
             {
-                "description": "Angular 10 framework to create Single Page Application (SPA) components. Define the purchase flow and designed site's static content."
-            },
-            {
-                "description": "Hands-on experience with Spring boot for developing RESTful CRUD operations for e-commerce transaction and purchase related info. Experience in using Kafka, Spring Batch, Spring Scheduler and Cloud configurations."
-            },
-            {
-                "description": "Experience in MySql to query the DB and extract data related to e-commerce flows."
+                "description": "Modernization of a Retail business by using Angular and ReactJS."
             }
         ]
     }

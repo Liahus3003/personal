@@ -20,7 +20,7 @@ export class PortfolioComponent implements OnInit {
   assetsPath = "./../../../assets";
   viewModeImgPath = "/Images/moon.svg";
   isDarkMode = false;
-  resumePath = "/resume/Suhail_Resume_2021.pdf";
+  resumePath = "/resume/Suhail_Resume_2k21.docx";
 
   constructor(
     private $siteLayoutService: SiteLayoutService,
@@ -102,11 +102,17 @@ export class PortfolioComponent implements OnInit {
     window.scrollTo(0, 0);
   }
 
-  hasAppeared(sectionIdentifier: string, elementRef: HTMLElement) {
+  hasAppeared(sectionIdentifier: string, elementRef: HTMLElement): void {
     if (sectionIdentifier === "odd") {
       elementRef.classList.add("animate-odd-block");
     } else {
       elementRef.classList.add("animate-even-block");
     }
+  }
+
+  navigateToBlock(id: string): void {
+    document.getElementById(id)?.scrollIntoView({
+      behavior: 'smooth'
+    });
   }
 }
