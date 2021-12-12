@@ -4,7 +4,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './/app-routing.module';
 import { AppComponent } from './app.component';
-import { SiteLayoutComponent } from './application-layout/site-layout/site-layout.component';import { SiteLayoutService } from '@layout/site-layout.service';
+import { SiteLayoutComponent } from './application-layout/site-layout/site-layout.component';
+import { SiteLayoutService } from '@layout/site-layout.service';
 import { PortfolioComponent } from './site-layout/portfolio/portfolio.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
@@ -26,12 +27,12 @@ import { SnackBarComponent } from './common/custom-layouts/snack-bar/snack-bar.c
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: environment.production,
-      // Register the ServiceWorker as soon as the app is stable
-      // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerImmediately'
-    })
+    // ServiceWorkerModule.register('ngsw-worker.js', {
+    //   enabled: environment.production,
+    //   // Register the ServiceWorker as soon as the app is stable
+    //   // or after 30 seconds (whichever comes first).
+    //   registrationStrategy: 'registerImmediately'
+    // })
   ],
   exports: [],
   providers: [SiteLayoutService,     {
