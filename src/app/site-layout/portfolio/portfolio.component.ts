@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { DialogService } from "@layout/dialog.service";
 import { SiteLayoutService } from "@layout/site-layout.service";
+import { Observable } from "rxjs";
 import { Award } from "./interface/award.interface";
 import { Education } from "./interface/education.interface";
 import { TechStack } from "./interface/tech-stack.interface";
@@ -21,10 +23,12 @@ export class PortfolioComponent implements OnInit {
   viewModeImgPath = "/Images/moon.svg";
   isDarkMode = false;
   resumePath = "/resume/Suhail_Resume_2k21.docx";
+  isAdmin = false;
 
   constructor(
     private $siteLayoutService: SiteLayoutService,
-    private $router: Router
+    private $router: Router,
+    private $dialogService: DialogService
   ) {}
 
   ngOnInit(): void {
@@ -115,4 +119,11 @@ export class PortfolioComponent implements OnInit {
       behavior: 'smooth'
     });
   }
+
+  canDeactivate(): Observable<boolean> | boolean {
+    if (!this.isAdmin) {
+        return this.$dialogService.confirm('Are you sure?');
+    }
+    return true;
+}	
 }

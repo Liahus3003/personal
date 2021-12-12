@@ -7,6 +7,7 @@
     "ng": "ng",
     "start": "ng serve --ssl",
     "start-pwa": "ng build --configuration production && http-server -p 8080 -c-1 dist",
+    "deploy": "firebase deploy",
     "sonar": "sonar-scanner",
     "build": "ng build --configuration production",
     "test": "ng test",
