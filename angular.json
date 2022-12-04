@@ -121,7 +121,6 @@
       }
     }
   },
-  "defaultProject": "suh-app",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
