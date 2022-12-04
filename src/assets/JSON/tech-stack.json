@@ -61,7 +61,7 @@
     "sortOrder": 9,
     "type": "framework",
     "imgSrc": "/Images/tech/nodejs.svg",
-    "active": false
+    "active": true
   },
   {
     "id": 9,
