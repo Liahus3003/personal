@@ -65,7 +65,7 @@
     </div>
     <div class="col-12 px-0 px-md-3 main-content">
       <div
-        class="my-5 work-experience"
+        class="work-experience"
         #block1 id="work-experience"
         (deferLoad)="hasAppeared('odd', block1)"
       >
@@ -99,14 +99,14 @@
         </div>
       </div>
       <div
-        class="my-5 tech-stack text-center"
+        class="tech-stack text-center"
         #block2 id="tech-stack"
         (deferLoad)="hasAppeared('even', block2)"
       >
         <h1 class="my-5">Tech Stack</h1>
         <div class="row justify-content-center">
           <div
-            class="col-6 col-md-4 my-3"
+            class="col-4 col-md-2 my-3"
             [class.inactive]="!tech.active"
             *ngFor="
               let tech of techStack
@@ -132,7 +132,7 @@
         <h3 class="my-3">Frameworks/Libraries Experience</h3>
         <div class="row justify-content-center">
           <div
-            class="col-6 col-md-4 my-3"
+            class="col-4 col-md-2 my-3"
             [class.inactive]="!tech.active"
             *ngFor="
               let tech of techStack
@@ -156,8 +156,8 @@
           </div>
         </div>
       </div>
-      <div class="my-5 awards" #block3 id="awards" (deferLoad)="hasAppeared('odd', block3)">
-        <h1 class="text-center">Awards & Recognitions</h1>
+      <div class="awards" #block3 id="awards" (deferLoad)="hasAppeared('odd', block3)">
+        <h1 class="my-5 text-center">Awards & Recognitions</h1>
         <div class="row">
           <div class="col-12 col-md-auto text-center">
             <picture>
@@ -181,7 +181,7 @@
         </div>
       </div>
       <div
-        class="my-5 education"
+        class="education"
         #block4 id="education"
         (deferLoad)="hasAppeared('even', block4)"
       >
