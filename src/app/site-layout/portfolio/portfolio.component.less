@@ -40,7 +40,16 @@
       height: 25px;
       transform: translate(-50%, -50%);
     }
+    .sticky-header {
+      position: sticky;
+      top: 0;
+      background-color: var(--layout-background);
+      z-index: 5;
+    }
     .intro-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       .title-img {
         width: 40px;
         height: 40px;
@@ -87,6 +96,10 @@
         }
       }
       .awards {
+        .wrapper {
+          flex-direction: row;
+          justify-content: space-evenly;
+        }
         .medal-image {
           width: 200px;
           height: 200px;
@@ -128,9 +141,9 @@
         padding: 0;
         .wrapper-list {
           display: inline-block;
-          margin: 8px 8px 0 0;
+          margin: 6px;
           padding: 6px;
-          border-radius: 10px;
+          border-radius: 2px;
           font-size: 14px;
           &:hover {
             background-color: var(--timeline-border-color);
