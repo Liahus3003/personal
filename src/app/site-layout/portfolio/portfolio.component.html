@@ -9,11 +9,12 @@
               src="../../../assets/Images/animated-image.jpg"
               alt="profile-picture"
             />
-            <span class="d-inline-block px-3">Suhail Shariff A</span>
+            <span class="d-inline-block px-3">Suhail Shariff</span>
           </span>
         </div>
         <nav class="quick-nav--section mx-auto">
           <ul class="wrapper">
+            <li tabindex="0" aria-label="About" class="wrapper-list active-link" (click)="navigateToBlock('about-section')">About</li>
             <li tabindex="0" aria-label="Experience" class="wrapper-list" (click)="navigateToBlock('work-experience')">Experience</li>
             <li tabindex="0" aria-label="Tech Stack" class="wrapper-list" (click)="navigateToBlock('tech-stack')">Tech Stack</li>
             <li tabindex="0" aria-label="Awards" class="wrapper-list" (click)="navigateToBlock('awards')">Recognitions</li>
@@ -37,7 +38,7 @@
         </span>
       </div>
     </div>
-    <div class="row px-0 px-md-3 brief-section mx-auto mt-5">
+    <div class="row px-0 px-md-3 brief-section mx-auto mt-5" #block0 id="about-section">
       <div class="profile-pic col-12 col-md-5">
         <span class="profile-pic--container">
           <img
@@ -48,10 +49,10 @@
         </span>
       </div>
       <div class="intro-content col-12 col-md-7 p-3 p-md-5">
-        <p class="role">Software Developer</p>
+        <p class="role">Full Stack Web Developer</p>
         <p class="name">Suhail Shariff</p>
         <p class="description">
-          Forward-thinking Software Engineer with 4+ years of Full-stack working experience in JS frameworks/libraries like Angular & React and in REST APIs, Spring Boot, Database concepts.
+          Forward-thinking Software Engineer with {{yearsSinceJoining}}+ years of Full-stack working experience in JS frameworks/libraries like Angular & React and in REST APIs, Spring Boot, Database concepts.
         </p>
         <div>
           <a
@@ -157,7 +158,7 @@
         </div>
       </div>
       <div class="awards" #block3 id="awards" (deferLoad)="hasAppeared('odd', block3)">
-        <h1 class="my-5 text-center">Awards & Recognitions</h1>
+        <h1 class="my-5 text-center">Certifications & Recognitions</h1>
         <div class="row wrapper">
           <div class="col-12 col-sm-auto text-center">
             <picture>

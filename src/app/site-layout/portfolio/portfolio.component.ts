@@ -14,7 +14,7 @@ import { WorkExperience } from "./interface/work-experience.interface";
   styleUrls: ["./portfolio.component.less"],
 })
 export class PortfolioComponent implements OnInit {
-  age: number = 0;
+  yearsSinceJoining: number = 0;
   techStack: TechStack[] = [];
   awards: Award[] = [];
   educationDetails: Education[] = [];
@@ -32,17 +32,17 @@ export class PortfolioComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.calculate_age(new Date(1996, 2, 30));
+    this.calculate_years(new Date(2017, 6, 1));
     this.getTechStacks();
     this.getAwards();
     this.getEducation();
     this.getWorkExperience();
   }
 
-  calculate_age(dob: Date) {
-    var diff_ms = Date.now() - dob.getTime();
-    var age_dt = new Date(diff_ms);
-    this.age = Math.abs(age_dt.getUTCFullYear() - 1970);
+  calculate_years(joiningDate: Date) {
+    const diff_ms = Date.now() - joiningDate.getTime();
+    const joined_dt = new Date(diff_ms);
+    this.yearsSinceJoining = Math.abs(joined_dt.getUTCFullYear() - 1970);
   }
 
   getTechStacks(): void {
@@ -116,7 +116,8 @@ export class PortfolioComponent implements OnInit {
 
   navigateToBlock(id: string): void {
     document.getElementById(id)?.scrollIntoView({
-      behavior: 'smooth'
+      behavior: 'smooth',
+      block: "center"
     });
   }
 
