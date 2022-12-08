@@ -8,5 +8,10 @@
         "id": 2,
         "name": "Employee of the Month (March 2018)",
         "company": "NextSphere Technologies"
+    },
+    {
+        "id": 3,
+        "name": "Star of the Month (April 2022)",
+        "company": "TCS"
     }
 ]

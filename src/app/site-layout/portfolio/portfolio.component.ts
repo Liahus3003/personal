@@ -1,4 +1,8 @@
-import { Component, OnInit } from "@angular/core";
+import {
+  Component,
+  HostListener,
+  OnInit,
+} from "@angular/core";
 import { Router } from "@angular/router";
 import { DialogService } from "@layout/dialog.service";
 import { SiteLayoutService } from "@layout/site-layout.service";
@@ -14,7 +18,9 @@ import { WorkExperience } from "./interface/work-experience.interface";
   styleUrls: ["./portfolio.component.less"],
 })
 export class PortfolioComponent implements OnInit {
-  age: number = 0;
+  blockSection: any;
+
+  yearsSinceJoining: number = 0;
   techStack: TechStack[] = [];
   awards: Award[] = [];
   educationDetails: Education[] = [];
@@ -24,6 +30,9 @@ export class PortfolioComponent implements OnInit {
   isDarkMode = false;
   resumePath = "/resume/Suhail_Resume_2k21.docx";
   isAdmin = false;
+  scrollPosition: number = 0;
+  activeSection = "about-section";
+  scrollTimeoutId = 0;
 
   constructor(
     private $siteLayoutService: SiteLayoutService,
@@ -32,17 +41,18 @@ export class PortfolioComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.calculate_age(new Date(1996, 2, 30));
+    this.blockSection = document.querySelectorAll('.block-section');
+    this.calculate_years(new Date(2017, 6, 1));
     this.getTechStacks();
     this.getAwards();
     this.getEducation();
     this.getWorkExperience();
   }
 
-  calculate_age(dob: Date) {
-    var diff_ms = Date.now() - dob.getTime();
-    var age_dt = new Date(diff_ms);
-    this.age = Math.abs(age_dt.getUTCFullYear() - 1970);
+  calculate_years(joiningDate: Date) {
+    const diff_ms = Date.now() - joiningDate.getTime();
+    const joined_dt = new Date(diff_ms);
+    this.yearsSinceJoining = Math.abs(joined_dt.getUTCFullYear() - 1970);
   }
 
   getTechStacks(): void {
@@ -116,14 +126,45 @@ export class PortfolioComponent implements OnInit {
 
   navigateToBlock(id: string): void {
     document.getElementById(id)?.scrollIntoView({
-      behavior: 'smooth'
+      behavior: "smooth",
+      block: "center"
     });
   }
 
   canDeactivate(): Observable<boolean> | boolean {
     if (!this.isAdmin) {
-        return this.$dialogService.confirm('Are you sure?');
+      return this.$dialogService.confirm("Are you sure?");
     }
     return true;
-}	
+  }
+
+  isInViewport(element: HTMLElement) {
+    const rect = element.getBoundingClientRect();
+    return (
+      rect.top < window.innerHeight && rect.bottom >= 0 || rect.bottom > 0 && rect.bottom <= window.innerHeight || rect.top <= 0 && rect.bottom >= window.innerHeight
+    );
+  }
+
+  @HostListener("window:scroll", ["$event"])
+  onWindowScroll($event: any) {
+    if (this.scrollTimeoutId) {
+      clearTimeout(this.scrollTimeoutId);
+    }
+
+    // Update the current scroll position
+    this.scrollPosition = $event.target.scrollTop;
+
+    this.scrollTimeoutId = setTimeout(() => {
+      // Loop through the list of highlighted divs
+    this.blockSection.forEach((div: HTMLElement) => {
+      // Check if the div is in the viewport
+      console.log('here');
+      if (this.isInViewport(div)) {
+        // Add the highlighting class to the div
+        console.log('here inside');
+        this.activeSection = div.id;
+      }
+    });
+    }, 100);
+  }
 }

@@ -1,6 +1,6 @@
 <div class="layout" id="top" [ngClass]="isDarkMode ? 'dark' : 'light'">
-  <div class="content-block row mx-auto p-3">
-    <div class="col-12">
+  <div class="content-block row mx-auto p-3 pt-0">
+    <div class="sticky-header col-12 py-3">
       <div class="intro-section position-relative">
         <div class="name">
           <span tabindex="0" aria-label="Navigate to Personal Site" class="pointer" (click)="navigateToInternalSite()">
@@ -9,9 +9,18 @@
               src="../../../assets/Images/animated-image.jpg"
               alt="profile-picture"
             />
-            <span class="d-inline-block px-3">Suhail Shariff A</span>
+            <span class="d-inline-block px-3">Suhail Shariff</span>
           </span>
         </div>
+        <nav class="quick-nav--section mx-auto">
+          <ul class="wrapper">
+            <li tabindex="0" aria-label="About" class="wrapper-list active-link" [class.active-link]="activeSection === 'about-section'" (click)="navigateToBlock('about-section')">About</li>
+            <li tabindex="0" aria-label="Experience" class="wrapper-list" [class.active-link]="activeSection === 'work-experience'" (click)="navigateToBlock('work-experience')">Experience</li>
+            <li tabindex="0" aria-label="Tech Stack" class="wrapper-list" [class.active-link]="activeSection === 'tech-stack'" (click)="navigateToBlock('tech-stack')">Tech Stack</li>
+            <li tabindex="0" aria-label="Awards" class="wrapper-list" [class.active-link]="activeSection === 'awards'" (click)="navigateToBlock('awards')">Recognitions</li>
+            <li tabindex="0" aria-label="Education" class="wrapper-list" [class.active-link]="activeSection === 'education'" (click)="navigateToBlock('education')">Education</li>
+          </ul>
+        </nav>
         <span class="view-mode" tabindex="0" aria-label="Toggle theme">
           <picture (click)="toggleViewMode()">
             <source
@@ -28,16 +37,8 @@
           </picture>
         </span>
       </div>
-      <nav class="quick-nav--section">
-        <ul class="wrapper">
-          <li tabindex="0" aria-label="Experience" class="wrapper-list" (click)="navigateToBlock('work-experience')">Experience</li>
-          <li tabindex="0" aria-label="Tech Stack" class="wrapper-list" (click)="navigateToBlock('tech-stack')">Tech Stack</li>
-          <li tabindex="0" aria-label="Awards" class="wrapper-list" (click)="navigateToBlock('awards')">Recognitions</li>
-          <li tabindex="0" aria-label="Education" class="wrapper-list" (click)="navigateToBlock('education')">Education</li>
-        </ul>
-      </nav>
     </div>
-    <div class="row px-0 px-md-3 brief-section mx-auto mt-5">
+    <div class="row px-0 px-md-3 brief-section block-section mx-auto mt-5" #block0 id="about-section">
       <div class="profile-pic col-12 col-md-5">
         <span class="profile-pic--container">
           <img
@@ -47,11 +48,11 @@
           />
         </span>
       </div>
-      <div class="col-12 col-md-7 p-3 p-md-5">
-        <p class="role">Software Developer</p>
+      <div class="intro-content col-12 col-md-7 p-3 p-md-5">
+        <p class="role">Full Stack Web Developer</p>
         <p class="name">Suhail Shariff</p>
         <p class="description">
-          Forward-thinking Software Engineer with 4+ years of Full-stack working experience in JS frameworks/libraries like Angular & React and in REST APIs, Spring Boot, Database concepts.
+          Forward-thinking Software Engineer with {{yearsSinceJoining}}+ years of Full-stack working experience in JS frameworks/libraries like Angular & React and in REST APIs, Spring Boot, Database concepts.
         </p>
         <div>
           <a
@@ -65,7 +66,7 @@
     </div>
     <div class="col-12 px-0 px-md-3 main-content">
       <div
-        class="my-5 work-experience"
+        class="work-experience block-section"
         #block1 id="work-experience"
         (deferLoad)="hasAppeared('odd', block1)"
       >
@@ -99,14 +100,14 @@
         </div>
       </div>
       <div
-        class="my-5 tech-stack text-center"
+        class="tech-stack block-section text-center"
         #block2 id="tech-stack"
         (deferLoad)="hasAppeared('even', block2)"
       >
         <h1 class="my-5">Tech Stack</h1>
         <div class="row justify-content-center">
           <div
-            class="col-6 col-md-4 my-3"
+            class="col-4 col-md-2 my-3"
             [class.inactive]="!tech.active"
             *ngFor="
               let tech of techStack
@@ -132,7 +133,7 @@
         <h3 class="my-3">Frameworks/Libraries Experience</h3>
         <div class="row justify-content-center">
           <div
-            class="col-6 col-md-4 my-3"
+            class="col-4 col-md-2 my-3"
             [class.inactive]="!tech.active"
             *ngFor="
               let tech of techStack
@@ -156,10 +157,10 @@
           </div>
         </div>
       </div>
-      <div class="my-5 awards" #block3 id="awards" (deferLoad)="hasAppeared('odd', block3)">
-        <h1 class="text-center">Awards & Recognitions</h1>
-        <div class="row">
-          <div class="col-12 col-md-auto text-center">
+      <div class="awards block-section" #block3 id="awards" (deferLoad)="hasAppeared('odd', block3)">
+        <h1 class="my-5 text-center">Certifications & Recognitions</h1>
+        <div class="row wrapper">
+          <div class="col-12 col-sm-auto text-center">
             <picture>
               <source
                 srcset="{{assetsPath + '/Images/gold-medal.svg'}}"
@@ -173,7 +174,7 @@
               />
             </picture>
           </div>
-          <div class="col-12 col-md-auto py-4">
+          <div class="col-12 col-sm-auto py-4">
             <div class="award-item mb-2" *ngFor="let award of awards">
               {{ award.name }} - {{ award.company }}
             </div>
@@ -181,7 +182,7 @@
         </div>
       </div>
       <div
-        class="my-5 education"
+        class="education block-section"
         #block4 id="education"
         (deferLoad)="hasAppeared('even', block4)"
       >

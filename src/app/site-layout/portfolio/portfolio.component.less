@@ -19,7 +19,7 @@
 }
 
 :focus-visible {
-  outline: 2px solid #a7a7ff!important;
+  outline: 2px solid #a7a7ff !important;
 }
 
 .layout {
@@ -29,9 +29,11 @@
   height: 100%;
   font-family: roboto-regular;
   font-size: 1rem;
+
   .content-block {
     position: relative;
     max-width: 1120px;
+
     .view-mode {
       position: absolute;
       right: 0px;
@@ -40,20 +42,33 @@
       height: 25px;
       transform: translate(-50%, -50%);
     }
+
+    .sticky-header {
+      position: sticky;
+      top: 0;
+      background-color: var(--layout-background);
+      z-index: 5;
+    }
+
     .intro-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
       .title-img {
         width: 40px;
         height: 40px;
         border-radius: 25px;
       }
+
       .name {
         font-family: roboto-bold;
         font-size: 18px;
         color: var(--title-content);
       }
     }
+
     .brief-section {
-      max-width: 75%;
       .name {
         font-family: roboto-bold;
         font-size: 52px;
@@ -61,38 +76,56 @@
         margin-top: 0;
         margin-bottom: 20px;
       }
+
       .role {
         font-size: 18px;
-        font-weight: 400;
-        margin-bottom: 10px;
+        line-height: 1.2;
+        font-weight: 700;
+        margin-bottom: 12px;
       }
+
       .description {
-        font-weight: 300;
+        font-weight: 400;
+        margin-bottom: 20px;
+        font-size: 16px;
+        padding: 8px 0;
+        line-height: 1.2;
       }
+
       .custom-button {
         background-color: var(--custom-button-bg-color);
         border-color: var(--custom-button-border-color);
         color: var(--layout-background);
       }
     }
+
     .main-content {
       overflow: hidden;
+
       .tech-stack {
         .inactive {
           opacity: 0.5;
           cursor: not-allowed;
         }
+
         .tech-image {
-          width: 150px;
-          height: 150px;
+          width: 85px;
+          height: 85px;
         }
       }
+
       .awards {
+        .wrapper {
+          flex-direction: row;
+          justify-content: space-evenly;
+        }
+
         .medal-image {
           width: 200px;
           height: 200px;
           margin: 35px;
         }
+
         .award-item {
           font-size: 20px;
           font-weight: 700;
@@ -102,6 +135,7 @@
           background-image: linear-gradient(to right, #fab62e, #949da3);
         }
       }
+
       .work-experience {
         .role-info {
           font-size: 18px;
@@ -109,6 +143,7 @@
         }
       }
     }
+
     .profile-pic {
       .profile-pic--container {
         display: block;
@@ -117,62 +152,113 @@
         margin: 20px;
         overflow: hidden;
         border-radius: 50%;
+
         .img-block {
           width: 100%;
           height: 100%;
         }
       }
     }
+
     .quick-nav--section {
       .wrapper {
         margin: 0;
         padding: 0;
+
         .wrapper-list {
           display: inline-block;
-          margin: 8px 8px 0 0;
-          padding: 6px;
-          border-radius: 10px;
+          margin: 6px;
+          padding: 6px 8px;
+          border-radius: 25px;
           font-size: 14px;
+          line-height: 1.2;
+
+          &.active-link {
+            position: relative;
+            color: #fff;
+            min-width: 65px;
+            text-align: center;
+            border-radius: 26px;
+            background-image: linear-gradient(90deg, #0065ff, #6942ef, #6554c0, #008cff, #0065ff, #6942ef);
+            background-size: 400%;
+            background-position: 0% 0%;
+            animation: gradientRotate 2s infinite;
+            
+            &::before {
+              content: '';
+              position: absolute;
+              left: -2px;
+              top: -2px;
+              right: -2px;
+              bottom: -2px;
+              border-radius: 26px;
+              background-image: linear-gradient(90deg, #0065ff, #6942ef, #6554c0, #008cff, #0065ff, #6942ef);
+              background-size: 500%;
+              background-position: 0% 0%;
+              opacity: 0;
+              z-index: -1;
+              transition: opacity 0.2s;
+              opacity: 1;
+              animation: gradientRotate 2s infinite;
+            }
+            
+            &:active {
+              color: #c3c4d5;
+            }
+            
+            &:focus {
+              &::before {
+                opacity: 1;
+              }
+            }
+          }
+
           &:hover {
-            background-color: var(--timeline-border-color);
-            color: var(--layout-background);
             cursor: pointer;
           }
         }
       }
     }
   }
+
   .animate-odd-block {
     animation: fadeInOddAnimation ease 2s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
   }
+
   .animate-even-block {
     animation: fadeInEvenAnimation ease 2s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
   }
+
   @keyframes fadeInOddAnimation {
     0% {
       opacity: 0;
       transform: translateX(-100%);
     }
+
     50% {
       opacity: 0.5;
     }
+
     100% {
       opacity: 1;
       transform: translateX(0%);
     }
   }
+
   @keyframes fadeInEvenAnimation {
     0% {
       opacity: 0;
       transform: translateX(200%);
     }
+
     50% {
       opacity: 0.5;
     }
+
     100% {
       opacity: 1;
       transform: translateX(0%);
@@ -194,6 +280,7 @@
   -moz-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 8px 20px 0px rgb(0 0 0 / 10%);
   z-index: 10 !important;
+
   &::before {
     top: 50%;
     left: 50%;
@@ -297,20 +384,16 @@
 
 /* Media queries - Responsive timeline on screens less than 600px wide */
 @media screen and (max-width: 600px) {
-  .layout {
-    margin: 16px 8px;
-  }
   .brief-section {
     max-width: 100% !important;
+
     .name {
       font-size: 65px !important;
       line-height: 75px !important;
     }
+
     .role {
       font-size: 24px !important;
-    }
-    .description {
-      font-weight: 300;
     }
   }
 
@@ -331,8 +414,7 @@
     left: 60px;
     border: medium solid white;
     border-width: 10px 10px 10px 0;
-    border-color: transparent var(--timeline-border-color) transparent
-      transparent;
+    border-color: transparent var(--timeline-border-color) transparent transparent;
   }
 
   /* Make sure all circles are at the same spot */
@@ -344,5 +426,42 @@
   /* Make all right containers behave like the left ones */
   .right {
     left: 0%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .content-block {
+    .intro-section {
+      flex-direction: column;
+    }
+    .sticky-header {
+      position: relative !important;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .view-mode {
+      top: 15% !important;
+    }
+    .quick-nav--section {
+      margin: 8px 0;
+    }
+  }
+  .brief-section {
+    .intro-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+}
+
+@keyframes gradientRotate {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
   }
 }
