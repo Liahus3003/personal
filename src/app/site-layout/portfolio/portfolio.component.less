@@ -182,6 +182,7 @@
             background-image: linear-gradient(90deg, #0065ff, #6942ef, #6554c0, #008cff, #0065ff, #6942ef);
             background-size: 400%;
             background-position: 0% 0%;
+            animation: gradientRotate 2s infinite;
             
             &::before {
               content: '';
@@ -197,14 +198,8 @@
               opacity: 0;
               z-index: -1;
               transition: opacity 0.2s;
-            }
-            
-            &:hover {
+              opacity: 1;
               animation: gradientRotate 2s infinite;
-              &::before {
-                opacity: 1;
-                animation: gradientRotate 2s infinite;
-              }
             }
             
             &:active {

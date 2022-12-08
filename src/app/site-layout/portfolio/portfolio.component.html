@@ -14,11 +14,11 @@
         </div>
         <nav class="quick-nav--section mx-auto">
           <ul class="wrapper">
-            <li tabindex="0" aria-label="About" class="wrapper-list active-link" (click)="navigateToBlock('about-section')">About</li>
-            <li tabindex="0" aria-label="Experience" class="wrapper-list" (click)="navigateToBlock('work-experience')">Experience</li>
-            <li tabindex="0" aria-label="Tech Stack" class="wrapper-list" (click)="navigateToBlock('tech-stack')">Tech Stack</li>
-            <li tabindex="0" aria-label="Awards" class="wrapper-list" (click)="navigateToBlock('awards')">Recognitions</li>
-            <li tabindex="0" aria-label="Education" class="wrapper-list" (click)="navigateToBlock('education')">Education</li>
+            <li tabindex="0" aria-label="About" class="wrapper-list active-link" [class.active-link]="activeSection === 'about-section'" (click)="navigateToBlock('about-section')">About</li>
+            <li tabindex="0" aria-label="Experience" class="wrapper-list" [class.active-link]="activeSection === 'work-experience'" (click)="navigateToBlock('work-experience')">Experience</li>
+            <li tabindex="0" aria-label="Tech Stack" class="wrapper-list" [class.active-link]="activeSection === 'tech-stack'" (click)="navigateToBlock('tech-stack')">Tech Stack</li>
+            <li tabindex="0" aria-label="Awards" class="wrapper-list" [class.active-link]="activeSection === 'awards'" (click)="navigateToBlock('awards')">Recognitions</li>
+            <li tabindex="0" aria-label="Education" class="wrapper-list" [class.active-link]="activeSection === 'education'" (click)="navigateToBlock('education')">Education</li>
           </ul>
         </nav>
         <span class="view-mode" tabindex="0" aria-label="Toggle theme">
@@ -38,7 +38,7 @@
         </span>
       </div>
     </div>
-    <div class="row px-0 px-md-3 brief-section mx-auto mt-5" #block0 id="about-section">
+    <div class="row px-0 px-md-3 brief-section block-section mx-auto mt-5" #block0 id="about-section">
       <div class="profile-pic col-12 col-md-5">
         <span class="profile-pic--container">
           <img
@@ -66,7 +66,7 @@
     </div>
     <div class="col-12 px-0 px-md-3 main-content">
       <div
-        class="work-experience"
+        class="work-experience block-section"
         #block1 id="work-experience"
         (deferLoad)="hasAppeared('odd', block1)"
       >
@@ -100,7 +100,7 @@
         </div>
       </div>
       <div
-        class="tech-stack text-center"
+        class="tech-stack block-section text-center"
         #block2 id="tech-stack"
         (deferLoad)="hasAppeared('even', block2)"
       >
@@ -157,7 +157,7 @@
           </div>
         </div>
       </div>
-      <div class="awards" #block3 id="awards" (deferLoad)="hasAppeared('odd', block3)">
+      <div class="awards block-section" #block3 id="awards" (deferLoad)="hasAppeared('odd', block3)">
         <h1 class="my-5 text-center">Certifications & Recognitions</h1>
         <div class="row wrapper">
           <div class="col-12 col-sm-auto text-center">
@@ -182,7 +182,7 @@
         </div>
       </div>
       <div
-        class="education"
+        class="education block-section"
         #block4 id="education"
         (deferLoad)="hasAppeared('even', block4)"
       >
