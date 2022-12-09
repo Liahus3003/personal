@@ -40,6 +40,7 @@ export class PortfolioComponent implements OnInit {
   scrollPosition: number = 0;
   activeSection = "about-section";
   scrollTimeoutId = 0;
+  currentRecognitionIndex = 0;
   recognitionContent = [
     {id: 1, name: 'awardsRef'},
     {id: 2, name: 'certificationsRef'}
@@ -144,10 +145,19 @@ export class PortfolioComponent implements OnInit {
   }
 
   switchContent(direction: string): void {
-
+    if (direction === 'left') {
+      const currentRef = this.recognitionContent[this.currentRecognitionIndex - 1] ?? this.recognitionContent[this.recognitionContent.length - 1];
+      this.currentRecognitionIndex = currentRef?.id - 1;
+      this.attachCurrentView(currentRef?.name);
+    } else {
+      const currentRef = this.recognitionContent[this.currentRecognitionIndex + 1] ?? this.recognitionContent[0];
+      this.currentRecognitionIndex = currentRef?.id - 1;
+      this.attachCurrentView(currentRef?.name);
+    }
   }
 
   attachCurrentView(refName: string): void {
+    this.removeCurrentView();
     switch(refName) {
       case 'awardsRef':
           this.recognitionsContainer.createEmbeddedView(this.awardsRef);
