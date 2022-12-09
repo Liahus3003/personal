@@ -2,6 +2,9 @@ import {
   Component,
   HostListener,
   OnInit,
+  TemplateRef,
+  ViewChild,
+  ViewContainerRef,
 } from "@angular/core";
 import { Router } from "@angular/router";
 import { DialogService } from "@layout/dialog.service";
@@ -18,6 +21,10 @@ import { WorkExperience } from "./interface/work-experience.interface";
   styleUrls: ["./portfolio.component.less"],
 })
 export class PortfolioComponent implements OnInit {
+  @ViewChild('recognitionsContainer', { read: ViewContainerRef, static: true}) recognitionsContainer!: ViewContainerRef;
+  @ViewChild('awardsRef', { read: TemplateRef, static: true}) awardsRef!: TemplateRef<any>;
+  @ViewChild('certificationsRef', { read: TemplateRef, static: true}) certificationsRef!: TemplateRef<any>;
+
   blockSection: any;
 
   yearsSinceJoining: number = 0;
@@ -33,6 +40,10 @@ export class PortfolioComponent implements OnInit {
   scrollPosition: number = 0;
   activeSection = "about-section";
   scrollTimeoutId = 0;
+  recognitionContent = [
+    {id: 1, name: 'awardsRef'},
+    {id: 2, name: 'certificationsRef'}
+  ];
 
   constructor(
     private $siteLayoutService: SiteLayoutService,
@@ -41,6 +52,7 @@ export class PortfolioComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.attachCurrentView(this.recognitionContent[0].name);
     this.blockSection = document.querySelectorAll('.block-section');
     this.calculate_years(new Date(2017, 6, 1));
     this.getTechStacks();
@@ -129,6 +141,27 @@ export class PortfolioComponent implements OnInit {
       behavior: "smooth",
       block: "center"
     });
+  }
+
+  switchContent(direction: string): void {
+
+  }
+
+  attachCurrentView(refName: string): void {
+    switch(refName) {
+      case 'awardsRef':
+          this.recognitionsContainer.createEmbeddedView(this.awardsRef);
+          break;
+      case 'certificationsRef':
+          this.recognitionsContainer.createEmbeddedView(this.certificationsRef);
+          break;
+    }
+  }
+
+  removeCurrentView(): void {
+    if (this.recognitionsContainer?.length) {
+      this.recognitionsContainer.remove();
+    }
   }
 
   canDeactivate(): Observable<boolean> | boolean {

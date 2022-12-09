@@ -50,9 +50,9 @@
       </div>
       <div class="intro-content col-12 col-md-7 p-3 p-md-5">
         <p class="role">Full Stack Web Developer</p>
-        <p class="name">Suhail Shariff</p>
+        <p class="name gradient-text">Suhail Shariff</p>
         <p class="description">
-          Forward-thinking Software Engineer with {{yearsSinceJoining}}+ years of Full-stack working experience in JS frameworks/libraries like Angular & React and in REST APIs, Spring Boot, Database concepts.
+          Forward-thinking Software Engineer with {{yearsSinceJoining}}+ years of working experience in dynamic environments. Hands-on experience working in Angular/ReactJs, developing REST APIs using Spring Boot/NodeJs and Database concepts.
         </p>
         <div>
           <a
@@ -157,29 +157,13 @@
           </div>
         </div>
       </div>
-      <div class="awards block-section" #block3 id="awards" (deferLoad)="hasAppeared('odd', block3)">
+      <div class="awards block-section position-relative" #block3 id="awards" (deferLoad)="hasAppeared('odd', block3)">
         <h1 class="my-5 text-center">Certifications & Recognitions</h1>
         <div class="row wrapper">
-          <div class="col-12 col-sm-auto text-center">
-            <picture>
-              <source
-                srcset="{{assetsPath + '/Images/gold-medal.svg'}}"
-                media="(min-width: 0px)"
-              />
-              <img
-                class="medal-image"
-                src="data:,"
-                alt="award"
-                loading="lazy"
-              />
-            </picture>
-          </div>
-          <div class="col-12 col-sm-auto py-4">
-            <div class="award-item mb-2" *ngFor="let award of awards">
-              {{ award.name }} - {{ award.company }}
-            </div>
-          </div>
+          <ng-container #recognitionsContainer></ng-container>
         </div>
+        <span class="arrow left-arrow fas fa-chevron-left" (click)="switchContent('left')"></span>
+        <span class="arrow right-arrow fas fa-chevron-right" (click)="switchContent('right')"></span>
       </div>
       <div
         class="education block-section"
@@ -211,3 +195,27 @@
   class="scroll-icon pointer fas fa-chevron-up"
   (click)="scrollToTop()"
 ></div>
+<ng-template #awardsRef>
+  <div class="col-12 col-sm-auto text-center">
+    <picture>
+      <source
+        srcset="{{assetsPath + '/Images/gold-medal.svg'}}"
+        media="(min-width: 0px)"
+      />
+      <img
+        class="medal-image"
+        src="data:,"
+        alt="award"
+        loading="lazy"
+      />
+    </picture>
+  </div>
+  <div class="col-12 col-sm-auto py-4">
+    <div class="award-item mb-2" *ngFor="let award of awards">
+      {{ award.name }} - {{ award.company }}
+    </div>
+  </div>
+</ng-template>
+<ng-template #certificationsRef>
+  <img loading="lazy" class="certification" src="../../../assets/Images/certs/aws-ccp.jpg" alt="profile-picture" />
+</ng-template>
