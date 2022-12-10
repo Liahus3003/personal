@@ -19,27 +19,27 @@ export class SiteLayoutService {
   constructor(private http:HttpClient) { }
 
     getCountries(): Observable<Country[]> {
-        return this.http.get<Country[]>('../../../assets/JSON/countries.json');
+        return this.http.get<Country[]>('../../../assets/json/countries.json');
     }
 
     getCourses(): Observable<Course[]> {
-      return this.http.get<Course[]>('./../../assets/JSON/learning.json');
+      return this.http.get<Course[]>('./../../assets/json/learning.json');
     }
 
     getTechStacks(): Observable<TechStack[]> {
-      return this.http.get<TechStack[]>('./../../assets/JSON/tech-stack.json');
+      return this.http.get<TechStack[]>('./../../assets/json/tech-stack.json');
     }
 
     getAwards(): Observable<Award[]> {
-      return this.http.get<Award[]>('./../../assets/JSON/awards.json');
+      return this.http.get<Award[]>('./../../assets/json/awards.json');
     }
 
     getEducation(): Observable<Education[]> {
-      return this.http.get<Education[]>('./../../assets/JSON/education.json');
+      return this.http.get<Education[]>('./../../assets/json/education.json');
     }
 
     getWorkExperience(): Observable<WorkExperience[]> {
-      return this.http.get<WorkExperience[]>('./../../assets/JSON/work-experience.json');
+      return this.http.get<WorkExperience[]>('./../../assets/json/work-experience.json');
     }
 
     getUsers(pageNumber: number): Observable<Users> {
