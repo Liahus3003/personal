@@ -7,12 +7,11 @@
         "endDate": "09-09-2021",
         "currentlyActive": false,
         "workInfo": [
-            {
-                "description": "A suite of products to build and operate the multi-level marketing (MLM) business using Micro service-based Architecture."
-            },
-            {
-                "description": "It is a cluster of portals implemented using Angular 12 having independent micro services like Shopping Sites, Account, Enrolment, Admin portals, Stores, Product Catalogs, Order Management and Payment Systems to support worldwide markets."
-            }
+            "Led the team for upgrading CMS portal from legacy AngularJS build to Angular 12",
+            "Performed optimizations to the CSS content in the CMS pages, resulting in decrease of bundle by 15%",
+            "Designed the UI workflow for Store configuration, which helped the Store admin to move away from dependency with developers to update stores via scripts. This portal helped reduce the overall flow drastically resulting in reduction of effort by 50%",
+            "Leveraged Spring Boot Batch process to handle bulk Product uploads for new stores with validations and robustness in updating the product. This process helped decrease the product catalogue configuration time by 80%",
+            "Experience in debugging browser compatability issues and Static code anlysis tools"
         ]
     },
     {
@@ -23,9 +22,9 @@
         "endDate": null,
         "currentlyActive": true,
         "workInfo": [
-            {
-                "description": "Modernization of a Retail business by using Angular and ReactJS."
-            }
+            "Managed the overhaul of Cart redesign by developing a library to combine operations for Mini Cart, Full Cart and Edit Cart, which resulted in reducing the duplicate code and effort by 50%",
+            "Activities involved coding, peer reviews, mentoring colleagues and working on tech debt activities to reduce the application load time",
+            "Worked on Web accessibility features to achieve ADA compliance"
         ]
     }
 ]

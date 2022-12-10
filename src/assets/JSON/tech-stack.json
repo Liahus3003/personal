@@ -4,7 +4,7 @@
     "name": "JavaScript",
     "sortOrder": 4,
     "type": "language",
-    "imgSrc": "/Images/tech/javascript.svg",
+    "imgSrc": "/images/tech/javascript.svg",
     "active": true
   },
   {
@@ -12,7 +12,7 @@
     "name": "Java",
     "sortOrder": 3,
     "type": "language",
-    "imgSrc": "/Images/tech/java.svg",
+    "imgSrc": "/images/tech/java.svg",
     "active": true
   },
   {
@@ -20,7 +20,7 @@
     "name": "MySql",
     "sortOrder": 5,
     "type": "language",
-    "imgSrc": "/Images/tech/mysql.svg",
+    "imgSrc": "/images/tech/mysql.svg",
     "active": true
   },
   {
@@ -28,7 +28,7 @@
     "name": "Angular",
     "sortOrder": 6,
     "type": "framework",
-    "imgSrc": "/Images/tech/angular.svg",
+    "imgSrc": "/images/tech/angular.svg",
     "active": true
   },
   {
@@ -36,7 +36,7 @@
     "name": "CSS",
     "sortOrder": 2,
     "type": "language",
-    "imgSrc": "/Images/tech/css3.svg",
+    "imgSrc": "/images/tech/css3.svg",
     "active": true
   },
   {
@@ -44,7 +44,7 @@
     "name": "React",
     "sortOrder": 8,
     "type": "framework",
-    "imgSrc": "/Images/tech/react.svg",
+    "imgSrc": "/images/tech/react.svg",
     "active": true
   },
   {
@@ -52,7 +52,7 @@
     "name": "Spring Boot",
     "sortOrder": 7,
     "type": "framework",
-    "imgSrc": "/Images/tech/spring.svg",
+    "imgSrc": "/images/tech/spring.svg",
     "active": true
   },
   {
@@ -60,7 +60,7 @@
     "name": "NodeJs",
     "sortOrder": 9,
     "type": "framework",
-    "imgSrc": "/Images/tech/nodejs.svg",
+    "imgSrc": "/images/tech/nodejs.svg",
     "active": true
   },
   {
@@ -68,7 +68,7 @@
     "name": "Git",
     "sortOrder": 13,
     "type": "framework",
-    "imgSrc": "/Images/tech/git.svg",
+    "imgSrc": "/images/tech/git.svg",
     "active": true
   },
   {
@@ -76,7 +76,7 @@
     "name": "HTML",
     "sortOrder": 1,
     "type": "language",
-    "imgSrc": "/Images/tech/html5.svg",
+    "imgSrc": "/images/tech/html5.svg",
     "active": true
   },
   {
@@ -84,7 +84,7 @@
     "name": "Bootstrap",
     "sortOrder": 11,
     "type": "framework",
-    "imgSrc": "/Images/tech/bootstrap.svg",
+    "imgSrc": "/images/tech/bootstrap.svg",
     "active": true
   },
   {
@@ -92,7 +92,7 @@
     "name": "TypeScript",
     "sortOrder": 12,
     "type": "framework",
-    "imgSrc": "/Images/tech/ts.svg",
+    "imgSrc": "/images/tech/ts.svg",
     "active": true
   },
   {
@@ -100,7 +100,7 @@
     "name": "MongoDb",
     "sortOrder": 9,
     "type": "framework",
-    "imgSrc": "/Images/tech/mongodb.svg",
+    "imgSrc": "/images/tech/mongodb.svg",
     "active": true
   }
 ]
