@@ -33,9 +33,9 @@ export class PortfolioComponent implements OnInit {
   educationDetails: Education[] = [];
   workExperiences: WorkExperience[] = [];
   assetsPath = "./../../../assets";
-  viewModeImgPath = "/Images/moon.svg";
+  viewModeImgPath = "/images/moon.svg";
   isDarkMode = false;
-  resumePath = "/resume/Suhail_Resume_2k21.docx";
+  resumePath = "/resume/Suhail_Shariff_2022.pdf";
   isAdmin = false;
   scrollPosition: number = 0;
   activeSection = "about-section";
@@ -115,9 +115,9 @@ export class PortfolioComponent implements OnInit {
   toggleViewMode() {
     this.isDarkMode = !this.isDarkMode;
     if (this.isDarkMode) {
-      this.viewModeImgPath = "/Images/sun.svg";
+      this.viewModeImgPath = "/images/sun.svg";
     } else {
-      this.viewModeImgPath = "/Images/moon.svg";
+      this.viewModeImgPath = "/images/moon.svg";
     }
   }
 
@@ -201,13 +201,11 @@ export class PortfolioComponent implements OnInit {
       // Loop through the list of highlighted divs
     this.blockSection.forEach((div: HTMLElement) => {
       // Check if the div is in the viewport
-      console.log('here');
       if (this.isInViewport(div)) {
         // Add the highlighting class to the div
-        console.log('here inside');
         this.activeSection = div.id;
       }
     });
-    }, 100);
+    }, 300);
   }
 }

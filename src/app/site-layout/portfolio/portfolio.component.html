@@ -6,7 +6,7 @@
           <span tabindex="0" aria-label="Navigate to Personal Site" class="pointer" (click)="navigateToInternalSite()">
             <img
               class="title-img"
-              src="../../../assets/Images/animated-image.jpg"
+              src="../../../assets/images/animated-image.jpg"
               alt="profile-picture"
             />
             <span class="d-inline-block px-3">Suhail Shariff</span>
@@ -43,7 +43,7 @@
         <span class="profile-pic--container">
           <img
             class="img-block"
-            src="../../../assets/Images/suhail-profile-dp.jpg"
+            src="../../../assets/images/suhail-profile-dp.jpg"
             alt="profile-picture"
           />
         </span>
@@ -88,10 +88,10 @@
                 }}</span></span
               >
               <ng-template #current>Current</ng-template>
-              <div class="role">
+              <div class="job-role">
                 <ul class="p-0">
                   <li *ngFor="let work of experience?.workInfo">
-                    {{ work.description }}
+                    {{ work }}
                   </li>
                 </ul>
               </div>
@@ -159,11 +159,13 @@
       </div>
       <div class="awards block-section position-relative" #block3 id="awards" (deferLoad)="hasAppeared('odd', block3)">
         <h1 class="my-5 text-center">Certifications & Recognitions</h1>
-        <div class="row wrapper">
+        <div class="row wrapper recogntion-carousel-container" [ngClass]="{'odd' : currentRecognitionIndex % 2 !== 0, 'even' : currentRecognitionIndex % 2 === 0}">
           <ng-container #recognitionsContainer></ng-container>
         </div>
-        <span class="arrow left-arrow fas fa-chevron-left" (click)="switchContent('left')"></span>
-        <span class="arrow right-arrow fas fa-chevron-right" (click)="switchContent('right')"></span>
+        <ng-container *ngIf="recognitionContent.length > 1">
+          <span class="arrow left-arrow fas fa-chevron-left" (click)="switchContent('left')"></span>
+          <span class="arrow right-arrow fas fa-chevron-right" (click)="switchContent('right')"></span>
+        </ng-container>
       </div>
       <div
         class="education block-section"
@@ -199,7 +201,7 @@
   <div class="col-12 col-sm-auto text-center">
     <picture>
       <source
-        srcset="{{assetsPath + '/Images/gold-medal.svg'}}"
+        srcset="{{assetsPath + '/images/gold-medal.svg'}}"
         media="(min-width: 0px)"
       />
       <img
@@ -217,5 +219,5 @@
   </div>
 </ng-template>
 <ng-template #certificationsRef>
-  <img loading="lazy" class="certificate" src="../../../assets/Images/certs/aws-ccp.jpg" alt="certificate-image" />
+  <img loading="lazy" class="certificate" src="../../../assets/images/certs/aws-ccp.jpg" alt="certificate-image" />
 </ng-template>
