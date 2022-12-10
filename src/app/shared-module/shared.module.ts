@@ -27,4 +27,4 @@ import { SortOrderPipe } from "./pipes/sort-order.pipe";
   providers: [
   ],
 })
-export class CommonModule {}
+export class SharedModule {}

@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { SwUpdate } from "@angular/service-worker";
-import { SnackBar } from "./common/custom-layouts/snack-bar/snack-bar.model";
-import { SnackBarService } from "./common/custom-layouts/snack-bar/snack-bar.service";
+import { SnackBar } from "./shared-module/custom-layouts/snack-bar/snack-bar.model";
+import { SnackBarService } from "./shared-module/custom-layouts/snack-bar/snack-bar.service";
 
 @Injectable({
   providedIn: "root",
@@ -18,8 +18,10 @@ export class PWAUpdateService {
   }
 
   checkForUpdate(): void {
-    this.ngsw.versionUpdates.subscribe(() => {
-      this.promptUser();
+    this.ngsw.versionUpdates.subscribe((version) => {
+      if (version.type === "VERSION_DETECTED") {
+        this.promptUser();
+      }
     });
   }
 
@@ -33,6 +35,6 @@ export class PWAUpdateService {
         action: () => document.location.reload(),
       };
       this.snackBarService.snackBar(config);
-    })
+    });
   }
 }

@@ -88,8 +88,8 @@
         font-weight: 400;
         margin-bottom: 20px;
         font-size: 16px;
+        line-height: 24px;
         padding: 8px 0;
-        line-height: 1.2;
       }
 
       .custom-button {
@@ -103,6 +103,8 @@
       overflow: hidden;
 
       .tech-stack {
+        opacity: 0;
+
         .inactive {
           opacity: 0.5;
           cursor: not-allowed;
@@ -115,15 +117,18 @@
       }
 
       .awards {
+        opacity: 0;
+
         .wrapper {
           flex-direction: row;
           justify-content: space-evenly;
+          min-height: 200px;
         }
 
         .medal-image {
           width: 200px;
           height: 200px;
-          margin: 35px;
+          margin: 16px 8px;
         }
 
         .award-item {
@@ -134,13 +139,25 @@
           padding: 10px;
           background-image: linear-gradient(to right, #fab62e, #949da3);
         }
+
+        .certificate {
+          width: auto;
+          height: auto;
+          max-width: 100%;
+        }
       }
 
       .work-experience {
+        opacity: 0;
+
         .role-info {
           font-size: 18px;
           font-weight: 700;
         }
+      }
+
+      .education {
+        opacity: 0;
       }
     }
 
@@ -183,7 +200,7 @@
             background-size: 400%;
             background-position: 0% 0%;
             animation: gradientRotate 2s infinite;
-            
+
             &::before {
               content: '';
               position: absolute;
@@ -201,11 +218,11 @@
               opacity: 1;
               animation: gradientRotate 2s infinite;
             }
-            
+
             &:active {
               color: #c3c4d5;
             }
-            
+
             &:focus {
               &::before {
                 opacity: 1;
@@ -217,6 +234,35 @@
             cursor: pointer;
           }
         }
+      }
+    }
+
+    .arrow {
+      position: absolute;
+      width: 35px;
+      height: 35px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      border: 4px solid #6581f3;
+      color: #6581f3;
+      border-radius: 50%;
+      box-shadow: 0px 1px 6px 6px rgb(62 66 116 / 10%);
+
+      &::before {
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        font-size: 16px;
+        transform: translate(-50%, -50%);
+      }
+
+      &.left-arrow {
+        left: 10px;
+      }
+
+      &.right-arrow {
+        right: 10px;
       }
     }
   }
@@ -295,6 +341,10 @@
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
+  .job-role {
+    font-size: 14px;
+    line-height: 20px;
+  }
 }
 
 /* The actual timeline (the vertical ruler) */
@@ -434,18 +484,27 @@
     .intro-section {
       flex-direction: column;
     }
+
     .sticky-header {
       position: relative !important;
       padding-left: 0;
       padding-right: 0;
     }
+
     .view-mode {
       top: 15% !important;
     }
+
     .quick-nav--section {
       margin: 8px 0;
     }
+
+    .certificate {
+      width: 75% !important;
+      height: 80% !important;
+    }
   }
+
   .brief-section {
     .intro-content {
       display: flex;
@@ -461,7 +520,32 @@
   0% {
     background-position: 0% 0%;
   }
+
   100% {
     background-position: 100% 100%;
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(-45deg, #6348df, #6355a4, #91cfcf, #e84378);
+  background-size: 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: animated_text 10s ease-in-out infinite;
+  -moz-animation: animated_text 10s ease-in-out infinite;
+  -webkit-animation: animated_text 10s ease-in-out infinite;
+}
+
+@keyframes animated_text {
+  0% {
+    background-position: 0px 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0px 50%;
   }
 }

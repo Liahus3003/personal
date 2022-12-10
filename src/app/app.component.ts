@@ -40,6 +40,4 @@ export class AppComponent implements OnInit {
       this.isNetworkOn = false;
     }
   }
-
-
 }

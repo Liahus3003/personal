@@ -2,6 +2,9 @@ import {
   Component,
   HostListener,
   OnInit,
+  TemplateRef,
+  ViewChild,
+  ViewContainerRef,
 } from "@angular/core";
 import { Router } from "@angular/router";
 import { DialogService } from "@layout/dialog.service";
@@ -18,6 +21,10 @@ import { WorkExperience } from "./interface/work-experience.interface";
   styleUrls: ["./portfolio.component.less"],
 })
 export class PortfolioComponent implements OnInit {
+  @ViewChild('recognitionsContainer', { read: ViewContainerRef, static: true}) recognitionsContainer!: ViewContainerRef;
+  @ViewChild('awardsRef', { read: TemplateRef, static: true}) awardsRef!: TemplateRef<any>;
+  @ViewChild('certificationsRef', { read: TemplateRef, static: true}) certificationsRef!: TemplateRef<any>;
+
   blockSection: any;
 
   yearsSinceJoining: number = 0;
@@ -26,13 +33,18 @@ export class PortfolioComponent implements OnInit {
   educationDetails: Education[] = [];
   workExperiences: WorkExperience[] = [];
   assetsPath = "./../../../assets";
-  viewModeImgPath = "/Images/moon.svg";
+  viewModeImgPath = "/images/moon.svg";
   isDarkMode = false;
-  resumePath = "/resume/Suhail_Resume_2k21.docx";
+  resumePath = "/resume/Suhail_Shariff_2022.pdf";
   isAdmin = false;
   scrollPosition: number = 0;
   activeSection = "about-section";
   scrollTimeoutId = 0;
+  currentRecognitionIndex = 0;
+  recognitionContent = [
+    {id: 1, name: 'awardsRef'},
+    {id: 2, name: 'certificationsRef'}
+  ];
 
   constructor(
     private $siteLayoutService: SiteLayoutService,
@@ -41,6 +53,7 @@ export class PortfolioComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.attachCurrentView(this.recognitionContent[0].name);
     this.blockSection = document.querySelectorAll('.block-section');
     this.calculate_years(new Date(2017, 6, 1));
     this.getTechStacks();
@@ -102,9 +115,9 @@ export class PortfolioComponent implements OnInit {
   toggleViewMode() {
     this.isDarkMode = !this.isDarkMode;
     if (this.isDarkMode) {
-      this.viewModeImgPath = "/Images/sun.svg";
+      this.viewModeImgPath = "/images/sun.svg";
     } else {
-      this.viewModeImgPath = "/Images/moon.svg";
+      this.viewModeImgPath = "/images/moon.svg";
     }
   }
 
@@ -129,6 +142,36 @@ export class PortfolioComponent implements OnInit {
       behavior: "smooth",
       block: "center"
     });
+  }
+
+  switchContent(direction: string): void {
+    if (direction === 'left') {
+      const currentRef = this.recognitionContent[this.currentRecognitionIndex - 1] ?? this.recognitionContent[this.recognitionContent.length - 1];
+      this.currentRecognitionIndex = currentRef?.id - 1;
+      this.attachCurrentView(currentRef?.name);
+    } else {
+      const currentRef = this.recognitionContent[this.currentRecognitionIndex + 1] ?? this.recognitionContent[0];
+      this.currentRecognitionIndex = currentRef?.id - 1;
+      this.attachCurrentView(currentRef?.name);
+    }
+  }
+
+  attachCurrentView(refName: string): void {
+    this.removeCurrentView();
+    switch(refName) {
+      case 'awardsRef':
+          this.recognitionsContainer.createEmbeddedView(this.awardsRef);
+          break;
+      case 'certificationsRef':
+          this.recognitionsContainer.createEmbeddedView(this.certificationsRef);
+          break;
+    }
+  }
+
+  removeCurrentView(): void {
+    if (this.recognitionsContainer?.length) {
+      this.recognitionsContainer.remove();
+    }
   }
 
   canDeactivate(): Observable<boolean> | boolean {
@@ -158,13 +201,11 @@ export class PortfolioComponent implements OnInit {
       // Loop through the list of highlighted divs
     this.blockSection.forEach((div: HTMLElement) => {
       // Check if the div is in the viewport
-      console.log('here');
       if (this.isInViewport(div)) {
         // Add the highlighting class to the div
-        console.log('here inside');
         this.activeSection = div.id;
       }
     });
-    }, 100);
+    }, 300);
   }
 }

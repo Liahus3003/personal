@@ -11,8 +11,6 @@ import { LearningAngularComponent } from "./learning-angular/learning-angular.co
 import { LearningBaseComponent } from "./learning-base/learning-base.component";
 import { InfiniteScrollComponent } from "./learning-angular/topics/lazy-scroll/infinite-scroll/infinite-scroll.component";
 import { ChildNavigationComponent } from "./learning-angular/child-navigation/child-navigation.component";
-import { RouteReuseStrategy } from "@angular/router";
-import { CacheRouteReuseStrategy } from "app/common/util/cache-route-reuse-strategy";
 
 @NgModule({
   declarations: [
