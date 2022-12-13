@@ -6,6 +6,7 @@ export interface WorkExperience {
     endDate: string;
     currentlyActive: boolean;
     workInfo: WorkDescription[];
+    year: number;
 }
 
 export interface WorkDescription {

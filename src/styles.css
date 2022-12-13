@@ -31,6 +31,10 @@
     src: url(assets/fonts/Roboto/Roboto-Light.ttf) format("truetype");
   }
 
+  .roboto-bold {
+    font-family: roboto-bold;
+  }
+
   body {
       font-family  : roboto-regular;
       font-size: 14px;
