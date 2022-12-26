@@ -13,6 +13,8 @@ import { CustomModalComponent } from './shared-module/custom-layouts/custom-moda
 import { SnackBarComponent } from './shared-module/custom-layouts/snack-bar/snack-bar.component';
 import { SharedModule } from './shared-module/shared.module';
 import { SiteLayoutComponent } from '@layout/site-layout.component';
+import { initializeApp } from "firebase/app";
+initializeApp(environment.firebase);
 
 @NgModule({
   declarations: [
@@ -31,7 +33,7 @@ import { SiteLayoutComponent } from '@layout/site-layout.component';
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
       // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerImmediately'
+      registrationStrategy: 'registerWhenStable:3000'
     })
   ],
   exports: [],

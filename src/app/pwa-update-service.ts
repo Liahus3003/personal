@@ -14,7 +14,14 @@ export class PWAUpdateService {
     if (!ngsw.isEnabled) {
       console.log("Service worker is disabled!");
     }
+    this.requestNotificationPermission();
     this.checkForUpdate();
+  }
+
+  async requestNotificationPermission() {
+    if (Notification.permission !== "granted") {
+      await Notification.requestPermission();
+    }
   }
 
   checkForUpdate(): void {

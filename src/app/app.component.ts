@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PWAUpdateService } from './pwa-update-service';
+import { getMessaging, getToken, onMessage } from "firebase/messaging";
+import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +9,6 @@ import { PWAUpdateService } from './pwa-update-service';
   styleUrls: ['./app.component.less']
 })
 export class AppComponent implements OnInit {
-  title = 'app';
   isNetworkOn = true;
 
   constructor(private pwaUpdateService: PWAUpdateService) {
@@ -15,29 +16,47 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    // Check For Updates
-    // this.ngsw.versionUpdates.subscribe(update => {
-    //   if (update.type === 'VERSION_DETECTED') {
-    //     this.ngsw.activateUpdate().then(() => {
-    //       console.log('App is Updated!');
-    //       location.reload();
-    //     })
-    //   }
-    // })
-
     // Check Network Status
     this.updateNetworkStatus();
     window.addEventListener("online", this.updateNetworkStatus.bind(this));
     window.addEventListener("offline", this.updateNetworkStatus.bind(this));
+
+    this.triggerSub();
   }
 
   updateNetworkStatus() {
     if(navigator.onLine && !this.isNetworkOn) {
-      console.log('is Online!');
       this.isNetworkOn = true;
     } else if (!navigator.onLine) {
-      console.log('is Offline!');
       this.isNetworkOn = false;
     }
+  }
+
+  triggerSub() {
+    this.requestPermission();
+    this.listen();
+  }
+
+  requestPermission() {
+    const messaging = getMessaging();
+    getToken(messaging, 
+     { vapidKey: environment.vapidKey}).then(
+       (currentToken) => {
+         if (currentToken) {
+           console.log("Hurraaa!!! we got the token.....");
+           console.log(currentToken);
+         } else {
+           console.log('No registration token available. Request permission to generate one.');
+         }
+     }).catch((err) => {
+        console.log('An error occurred while retrieving token. ', err);
+    });
+  }
+
+  listen() {
+    const messaging = getMessaging();
+    onMessage(messaging, (payload) => {
+      console.log('Message received. ', payload);
+    });
   }
 }

@@ -12,7 +12,7 @@ const routes: Routes = [
     loadChildren: () => import('@layout/content/content.module').then(m => m.ContentModule)
   },
   { path: '', redirectTo: '/portfolio', pathMatch: 'full'},
-  { path: '*', redirectTo: '/portfolio'},
+  { path: '**', redirectTo: '/portfolio'},
 ];
 
 @NgModule({

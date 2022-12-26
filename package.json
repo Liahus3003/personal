@@ -6,7 +6,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --ssl",
-    "start-pwa": "ng build --configuration production && http-server -p 8080 -c-1 dist",
+    "start-pwa": "ng build --configuration production && http-server -p 8080 --cors -c-1 dist",
     "deploy": "firebase deploy",
     "sonar": "sonar-scanner",
     "build": "ng build --configuration production",
@@ -30,6 +30,7 @@
     "@fortawesome/fontawesome-free": "^5.14.0",
     "bootstrap": "^5.0.0-beta3",
     "core-js": "^3.2.1",
+    "firebase": "^9.15.0",
     "rxjs": "^6.6.7",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
