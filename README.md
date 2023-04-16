@@ -1,28 +1,41 @@
-# SuhApp
+# Personal Portfolio - Front-end Branding
+Personal Portfolio is a front-end Angular application that serves as a branding platform for personal portfolios. This readme provides an overview of the Personal Portfolio project, its features, installation instructions, and usage guidelines.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.3.
+## Features
+Personal Portfolio offers the following features:
 
-## Development server
+Portfolio Showcase: Personal Portfolio provides a visually appealing and interactive showcase for personal portfolios. Users can create and customize their portfolio to showcase their skills, projects, resume, and other relevant information in a professional manner.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Responsive Design: Personal Portfolio is designed to be responsive and mobile-friendly, ensuring that portfolios can be viewed and accessed on various devices, including desktops, tablets, and mobile phones.
 
-## Code scaffolding
+Customizable Templates: Personal Portfolio includes a range of customizable templates to choose from, allowing users to personalize their portfolio and create a unique online presence. Templates can be easily customized with different colors, fonts, layouts, and content to match individual branding preferences.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Portfolio Sections: Personal Portfolio supports multiple sections for different types of portfolio content, such as About Me, Skills, Projects, Resume, Contact, and Social Media links. Users can easily add, edit, and rearrange sections to showcase their portfolio content in a structured and organized manner.
 
-## Build
+SEO Friendly: Personal Portfolio is designed with search engine optimization (SEO) best practices in mind, ensuring that portfolios can be easily discovered by search engines and appear in search results.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+## Installation
+To install and run Personal Portfolio locally, follow these steps:
 
-## Running unit tests
+Clone the Personal Portfolio repository from GitHub: git clone https://github.com/Liahus3003/personal.git
+Navigate to the project directory: cd personal
+Install dependencies: npm install
+Build the application: npm run build
+Start the local development server: npm run start
+Personal Portfolio will now be running on http://localhost:4200/.
+Note: Personal Portfolio requires Node.js and Angular to be installed and running on your machine.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Usage
+Once Personal Portfolio is installed and running, you can access the application in your web browser and use the features mentioned above to create and customize your personal portfolio branding. You can add, edit, and manage your portfolio content through the user-friendly content management interface, customize the templates, and showcase your skills, projects, and other information in a professional and visually appealing manner.
 
-## Running end-to-end tests
+## Contributing
+If you wish to contribute to Personal Portfolio, you can follow these steps:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
+## Fork the Personal Portfolio repository.
+Create a new branch for your changes: git checkout -b my-feature-branch
+Make changes to the codebase.
+Test your changes to ensure they are working correctly.
+Commit your changes: git commit -m "Add my feature"
+Push your changes to your forked repository: git push origin my-feature-branch
+Create a pull request to the original repository for review and inclusion of your changes.
+Please refer to the contribution guidelines in the repository for more details on how to contribute to Personal Portfolio.
