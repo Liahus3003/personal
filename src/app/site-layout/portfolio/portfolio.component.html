@@ -15,14 +15,14 @@
             </li>
             <li tabindex="0" aria-label="Experience" class="wrapper-list"
               [class.active-link]="activeSection === 'work-experience'" (click)="navigateToBlock('work-experience')">
-              Experience</li>
+            Experience</li>
             <li tabindex="0" aria-label="Tech Stack" class="wrapper-list"
               [class.active-link]="activeSection === 'tech-stack'" (click)="navigateToBlock('tech-stack')">Tech Stack
             </li>
             <li tabindex="0" aria-label="Awards" class="wrapper-list" [class.active-link]="activeSection === 'awards'"
-              (click)="navigateToBlock('awards')">Recognitions</li>
+            (click)="navigateToBlock('awards')">Recognitions</li>
             <li tabindex="0" aria-label="Education" class="wrapper-list"
-              [class.active-link]="activeSection === 'education'" (click)="navigateToBlock('education')">Education</li>
+            [class.active-link]="activeSection === 'education'" (click)="navigateToBlock('education')">Education</li>
           </ul>
         </nav>
         <span class="view-mode" tabindex="0" aria-label="Toggle theme">
@@ -49,7 +49,7 @@
         </p>
         <div>
           <a class="btn btn-primary site-button custom-button" target="_blank"
-            href="{{ assetsPath + resumePath }}">Download CV</a>
+          href="{{ assetsPath + resumePath }}">Download CV</a>
         </div>
       </div>
     </div>
@@ -57,53 +57,63 @@
       <div class="work-experience block-section" #block1 id="work-experience" (deferLoad)="hasAppeared('odd', block1)">
         <h1 class="text-center my-5">Work Experience</h1>
         <div class="timeline">
-          <div class="container mx-0" [class.right]="i % 2 === 0" [class.left]="i % 2 !== 0"
-            *ngFor="let experience of workExperiences; index as i">
-            <div class="content">
-              <div class="d-flex justify-content-between align-items-center roboto-bold">
-                <span class="d-inline-block py-2">{{ experience.year }}</span>
-                <span class="details-label d-inline-block py-2">{{ experience.role }}</span>
-              </div>
-              <h2 class="roboto-bold">{{ experience.organization }}</h2>
-              <div class="separator"></div>
-              <div class="job-role mt-4">
-                <ul class="p-0">
-                  <li *ngFor="let work of experience?.workInfo">
-                    {{ work }}
-                  </li>
-                </ul>
+          @for (experience of workExperiences; track experience; let i = $index) {
+            <div class="container mx-0" [class.right]="i % 2 === 0" [class.left]="i % 2 !== 0"
+              >
+              <div class="content">
+                <div class="d-flex justify-content-between align-items-center roboto-bold">
+                  <span class="d-inline-block py-2">{{ experience.year }}</span>
+                  <span class="details-label d-inline-block py-2">{{ experience.role }}</span>
+                </div>
+                <h2 class="roboto-bold">{{ experience.organization }}</h2>
+                <div class="separator"></div>
+                <div class="job-role mt-4">
+                  <ul class="p-0">
+                    @for (work of experience?.workInfo; track work) {
+                      <li>
+                        {{ work }}
+                      </li>
+                    }
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
+          }
         </div>
       </div>
       <div class="tech-stack block-section text-center" #block2 id="tech-stack"
         (deferLoad)="hasAppeared('even', block2)">
         <h1 class="my-5">Tech Stack</h1>
         <div class="row justify-content-center">
-          <div class="col-4 col-md-2 my-3" [class.inactive]="!tech.active" *ngFor="
-              let tech of techStack
-                | filter: 'type':'language'
-                | sortOrder: 'sortOrder'
-            ">
-            <picture>
-              <source srcset="{{assetsPath + tech.imgSrc}}" media="(min-width: 0px)" />
-              <img class="tech-image" src="data:," [title]="tech.name" [alt]="tech.name" loading="lazy" />
-            </picture>
-          </div>
+          @for (
+            tech of techStack
+            | filter: 'type':'language'
+            | sortOrder: 'sortOrder'
+            ; track
+            tech) {
+            <div class="col-4 col-md-2 my-3" [class.inactive]="!tech.active">
+              <picture>
+                <source srcset="{{assetsPath + tech.imgSrc}}" media="(min-width: 0px)" />
+                <img class="tech-image" src="data:," [title]="tech.name" [alt]="tech.name" loading="lazy" />
+              </picture>
+            </div>
+          }
         </div>
         <h3 class="my-3">Frameworks/Libraries Experience</h3>
         <div class="row justify-content-center">
-          <div class="col-4 col-md-2 my-3" [class.inactive]="!tech.active" *ngFor="
-              let tech of techStack
-                | filter: 'type':'framework'
-                | sortOrder: 'sortOrder'
-            ">
-            <picture>
-              <source srcset="{{assetsPath + tech.imgSrc}}" media="(min-width: 0px)" />
-              <img class="tech-image" src="data:," [title]="tech.name" [alt]="tech.name" loading="lazy" />
-            </picture>
-          </div>
+          @for (
+            tech of techStack
+            | filter: 'type':'framework'
+            | sortOrder: 'sortOrder'
+            ; track
+            tech) {
+            <div class="col-4 col-md-2 my-3" [class.inactive]="!tech.active">
+              <picture>
+                <source srcset="{{assetsPath + tech.imgSrc}}" media="(min-width: 0px)" />
+                <img class="tech-image" src="data:," [title]="tech.name" [alt]="tech.name" loading="lazy" />
+              </picture>
+            </div>
+          }
         </div>
       </div>
       <div class="awards block-section position-relative" #block3 id="awards" (deferLoad)="hasAppeared('odd', block3)">
@@ -112,26 +122,28 @@
           [ngClass]="{'odd' : currentRecognitionIndex % 2 !== 0, 'even' : currentRecognitionIndex % 2 === 0}">
           <ng-container #recognitionsContainer></ng-container>
         </div>
-        <ng-container *ngIf="recognitionContent.length > 1">
+        @if (recognitionContent.length > 1) {
           <span class="arrow left-arrow fas fa-chevron-left" (click)="switchContent('left')"></span>
           <span class="arrow right-arrow fas fa-chevron-right" (click)="switchContent('right')"></span>
-        </ng-container>
+        }
       </div>
       <div class="education block-section" #block4 id="education" (deferLoad)="hasAppeared('even', block4)">
         <h1 class="text-center my-5">Educational Qualification</h1>
         <div class="timeline">
-          <div class="container mx-0" [class.right]="i % 2 === 0" [class.left]="i % 2 !== 0"
-            *ngFor="let education of educationDetails; index as i">
-            <div class="content">
-              <div class="d-flex justify-content-between align-items-center roboto-bold font-size-12">
-                <span class="d-inline-block py-2">{{ education.year }}</span>
-                <span class="details-label d-inline-block py-2">{{ education.institution }}</span>
+          @for (education of educationDetails; track education; let i = $index) {
+            <div class="container mx-0" [class.right]="i % 2 === 0" [class.left]="i % 2 !== 0"
+              >
+              <div class="content">
+                <div class="d-flex justify-content-between align-items-center roboto-bold font-size-12">
+                  <span class="d-inline-block py-2">{{ education.year }}</span>
+                  <span class="details-label d-inline-block py-2">{{ education.institution }}</span>
+                </div>
+                <h2 class="roboto-bold" title="pass percentage">
+                  {{ education.name }} - {{ education.percentage }}%
+                </h2>
               </div>
-              <h2 class="roboto-bold" title="pass percentage">
-                {{ education.name }} - {{ education.percentage }}%
-              </h2>
             </div>
-          </div>
+          }
         </div>
       </div>
     </div>
@@ -146,9 +158,11 @@
     </picture>
   </div>
   <div class="col-12 col-sm-auto py-4">
-    <div class="award-item mb-2" *ngFor="let award of awards">
-      {{ award.name }} - {{ award.company }}
-    </div>
+    @for (award of awards; track award) {
+      <div class="award-item mb-2">
+        {{ award.name }} - {{ award.company }}
+      </div>
+    }
   </div>
 </ng-template>
 <ng-template #certificationsRef>

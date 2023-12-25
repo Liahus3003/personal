@@ -1,15 +1,19 @@
 <p>site-layout-locations works!</p>
 <div class="row">
-  <ng-container *ngFor="let category of finalCountries; let i = index">
-    <div class="col-6 countries-section" *ngIf="category.countries?.length">
-      <h1 class="country-category">
-        {{ category.category }}
-      </h1>
-      <ul>
-        <li *ngFor="let countries of category.countries">
-          {{ countries.countryName }}
-        </li>
-      </ul>
-    </div>
-  </ng-container>
+  @for (category of finalCountries; track category; let i = $index) {
+    @if (category.countries?.length) {
+      <div class="col-6 countries-section">
+        <h1 class="country-category">
+          {{ category.category }}
+        </h1>
+        <ul>
+          @for (countries of category.countries; track countries) {
+            <li>
+              {{ countries.countryName }}
+            </li>
+          }
+        </ul>
+      </div>
+    }
+  }
 </div>
