@@ -8,8 +8,8 @@ describe('SiteLayoutDashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SiteLayoutDashboardComponent ]
-    })
+    imports: [SiteLayoutDashboardComponent]
+})
     .compileComponents();
   }));
 

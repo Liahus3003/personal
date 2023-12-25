@@ -1,9 +1,10 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-custom-modal',
-  templateUrl: './custom-modal.component.html',
-  styleUrls: ['./custom-modal.component.less']
+    selector: 'app-custom-modal',
+    templateUrl: './custom-modal.component.html',
+    styleUrls: ['./custom-modal.component.less'],
+    standalone: true
 })
 export class CustomModalComponent implements OnInit, OnDestroy {
   @Input() title: string = 'This is the Title!';

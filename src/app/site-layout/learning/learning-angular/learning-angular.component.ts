@@ -4,11 +4,15 @@ import { SiteLayoutService } from "@layout/site-layout.service";
 import { Subject } from "rxjs";
 import { Result, Search } from "../interfaces/search.interface";
 import { UserData, Users } from "../interfaces/users.interface";
+import { SlicePipe } from "@angular/common";
+import { InfiniteScrollComponent } from "./topics/lazy-scroll/infinite-scroll/infinite-scroll.component";
 
 @Component({
-  selector: "app-learning-angular",
-  templateUrl: "./learning-angular.component.html",
-  styleUrls: ["./learning-angular.component.less"],
+    selector: "app-learning-angular",
+    templateUrl: "./learning-angular.component.html",
+    styleUrls: ["./learning-angular.component.less"],
+    standalone: true,
+    imports: [InfiniteScrollComponent, SlicePipe],
 })
 export class LearningAngularComponent implements OnInit {
   key: string = "";

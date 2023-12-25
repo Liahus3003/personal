@@ -8,8 +8,8 @@ describe('LearningMySqlComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LearningMySqlComponent ]
-    })
+    imports: [LearningMySqlComponent]
+})
     .compileComponents();
   }));
 

@@ -1,9 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: "app-site-layout-my-profile",
-  templateUrl: "./site-layout-my-profile.component.html",
-  styleUrls: ["./site-layout-my-profile.component.less"],
+    selector: "app-site-layout-my-profile",
+    templateUrl: "./site-layout-my-profile.component.html",
+    styleUrls: ["./site-layout-my-profile.component.less"],
+    standalone: true,
 })
 export class SiteLayoutMyProfileComponent implements OnInit {
   constructor() {}

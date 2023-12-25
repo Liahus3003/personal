@@ -17,30 +17,28 @@ import { initializeApp } from "firebase/app";
 initializeApp(environment.firebase);
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SiteLayoutComponent,
-    PortfolioComponent,
-    CustomModalComponent,
-    SnackBarComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    SharedModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: environment.production,
-      // Register the ServiceWorker as soon as the app is stable
-      // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:3000'
-    })
-  ],
-  exports: [],
-  providers: [SiteLayoutService,     {
-    provide: RouteReuseStrategy,
-    useClass: CacheRouteReuseStrategy,
-  },],
-  bootstrap: [AppComponent]
+    declarations: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        SharedModule,
+        ServiceWorkerModule.register('ngsw-worker.js', {
+            enabled: environment.production,
+            // Register the ServiceWorker as soon as the app is stable
+            // or after 30 seconds (whichever comes first).
+            registrationStrategy: 'registerWhenStable:3000'
+        }),
+        SiteLayoutComponent,
+        PortfolioComponent,
+        CustomModalComponent,
+        SnackBarComponent
+    ],
+    exports: [],
+    providers: [SiteLayoutService, {
+            provide: RouteReuseStrategy,
+            useClass: CacheRouteReuseStrategy,
+        },],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

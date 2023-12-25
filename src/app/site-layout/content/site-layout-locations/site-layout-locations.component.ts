@@ -4,9 +4,10 @@ import { CountryCategory, CountryMapping } from "../interfaces/country-category.
 import { Country } from "../interfaces/country.interface";
 
 @Component({
-  selector: "app-site-layout-locations",
-  templateUrl: "./site-layout-locations.component.html",
-  styleUrls: ["./site-layout-locations.component.less"],
+    selector: "app-site-layout-locations",
+    templateUrl: "./site-layout-locations.component.html",
+    styleUrls: ["./site-layout-locations.component.less"],
+    standalone: true,
 })
 export class SiteLayoutLocationsComponent implements OnInit {
   alphabets = [

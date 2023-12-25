@@ -7,24 +7,20 @@ import { FilterPipe } from "./pipes/filter.pipe";
 import { SortOrderPipe } from "./pipes/sort-order.pipe";
 
 @NgModule({
-  declarations: [
-    ClickOutsideDirective,
-    OnlyNumberDirective,
-    SlimScrollDirective,
-    DeferLoadDirective,
-    SortOrderPipe,
-    FilterPipe
-  ],
-  imports: [],
-  exports: [
-    ClickOutsideDirective,
-    OnlyNumberDirective,
-    SlimScrollDirective,
-    DeferLoadDirective,
-    SortOrderPipe,
-    FilterPipe,
-  ],
-  providers: [
-  ],
+    imports: [ClickOutsideDirective,
+        OnlyNumberDirective,
+        SlimScrollDirective,
+        DeferLoadDirective,
+        SortOrderPipe,
+        FilterPipe],
+    exports: [
+        ClickOutsideDirective,
+        OnlyNumberDirective,
+        SlimScrollDirective,
+        DeferLoadDirective,
+        SortOrderPipe,
+        FilterPipe,
+    ],
+    providers: [],
 })
 export class SharedModule {}

@@ -8,8 +8,8 @@ describe('LearningAngularComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LearningAngularComponent ]
-    })
+    imports: [LearningAngularComponent]
+})
     .compileComponents();
   }));
 

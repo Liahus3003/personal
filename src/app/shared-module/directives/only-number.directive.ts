@@ -3,7 +3,10 @@ import { NgModel } from '@angular/forms';
 
 
 // tslint:disable-next-line:directive-selector
-@Directive({ selector: '[OnlyNumber]' })
+@Directive({
+    selector: '[OnlyNumber]',
+    standalone: true
+})
 export class OnlyNumberDirective {
   regexStr = '^[1-9][0-9]*$';
   regexStrKeyUp = '^[0-9]*$';

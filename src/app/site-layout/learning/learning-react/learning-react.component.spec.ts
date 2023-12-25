@@ -8,8 +8,8 @@ describe('LearningReactComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LearningReactComponent ]
-    })
+    imports: [LearningReactComponent]
+})
     .compileComponents();
   }));
 

@@ -8,8 +8,8 @@ describe('SnackBarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SnackBarComponent ]
-    })
+    imports: [SnackBarComponent]
+})
     .compileComponents();
   });
 

@@ -8,8 +8,8 @@ describe('SiteLayoutMyProfileComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SiteLayoutMyProfileComponent ]
-    })
+    imports: [SiteLayoutMyProfileComponent]
+})
     .compileComponents();
   }));
 

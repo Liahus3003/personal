@@ -8,8 +8,8 @@ describe('ChildNavigationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ChildNavigationComponent ]
-    })
+    imports: [ChildNavigationComponent]
+})
     .compileComponents();
   });
 

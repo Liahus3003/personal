@@ -13,20 +13,16 @@ import { InfiniteScrollComponent } from "./learning-angular/topics/lazy-scroll/i
 import { ChildNavigationComponent } from "./learning-angular/child-navigation/child-navigation.component";
 
 @NgModule({
-  declarations: [
-    SiteLayoutLearningComponent,
-    LearningJavaScriptComponent,
-    LearningCSSComponent,
-    LearningReactComponent,
-    LearningMySqlComponent,
-    LearningJavaComponent,
-    LearningAngularComponent,
-    LearningBaseComponent,
-    InfiniteScrollComponent,
-    ChildNavigationComponent,
-  ],
-  imports: [LearnRoutingModule, CommonModule],
-  providers: [
-  ],
+    imports: [LearnRoutingModule, CommonModule, SiteLayoutLearningComponent,
+        LearningJavaScriptComponent,
+        LearningCSSComponent,
+        LearningReactComponent,
+        LearningMySqlComponent,
+        LearningJavaComponent,
+        LearningAngularComponent,
+        LearningBaseComponent,
+        InfiniteScrollComponent,
+        ChildNavigationComponent],
+    providers: [],
 })
 export class LearnModule {}

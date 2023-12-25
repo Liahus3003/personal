@@ -1,10 +1,13 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { SiteLayoutService } from '@layout/site-layout.service';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-site-layout-learning',
-  templateUrl: './site-layout-learning.component.html',
-  styleUrls: ['./site-layout-learning.component.less']
+    selector: 'app-site-layout-learning',
+    templateUrl: './site-layout-learning.component.html',
+    styleUrls: ['./site-layout-learning.component.less'],
+    standalone: true,
+    imports: [RouterLink, RouterOutlet]
 })
 export class SiteLayoutLearningComponent implements OnInit {
   courses = null;

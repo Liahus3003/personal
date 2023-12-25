@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-learning-java-script',
-  templateUrl: './learning-java-script.component.html',
-  styleUrls: ['./learning-java-script.component.css']
+    selector: 'app-learning-java-script',
+    templateUrl: './learning-java-script.component.html',
+    styleUrls: ['./learning-java-script.component.css'],
+    standalone: true
 })
 export class LearningJavaScriptComponent implements OnInit {
 
