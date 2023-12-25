@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { CanDeactivate, ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
 import { Observable } from "rxjs";
 
 export interface CanDeactivatePortfolio {
@@ -9,7 +9,7 @@ export interface CanDeactivatePortfolio {
   @Injectable({
     providedIn: 'root'}
   )  
-  export class CanDeactivatePortfolioGuard implements CanDeactivate<CanDeactivatePortfolio> {
+  export class CanDeactivatePortfolioGuard  {
     canDeactivate(component: CanDeactivatePortfolio, 
              route: ActivatedRouteSnapshot, 
              state: RouterStateSnapshot) {
