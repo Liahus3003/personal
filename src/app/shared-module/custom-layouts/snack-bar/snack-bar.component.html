@@ -1,11 +1,15 @@
-<div *ngIf="config" class="content">
+@if (config) {
+  <div class="content">
     <p class="message">{{ config.message }}</p>
-    <div class="actions" *ngIf="config.showActions">
+    @if (config.showActions) {
+      <div class="actions">
         <button (click)="confirm()" class="btn btn-primary site-button mx-2 m-auto" role="button">
-            <span>Okay</span>
-          </button>
-          <button (click)="cancel()" class="btn btn-warning site-button mx-2 m-auto" role="button">
-            <span>Cancel</span>
-          </button>
-    </div>
-</div>
+          <span>Okay</span>
+        </button>
+        <button (click)="cancel()" class="btn btn-warning site-button mx-2 m-auto" role="button">
+          <span>Cancel</span>
+        </button>
+      </div>
+    }
+  </div>
+}

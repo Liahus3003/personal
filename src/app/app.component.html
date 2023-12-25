@@ -1,14 +1,16 @@
 <div class="site-content">
-    <ng-container *ngIf="isNetworkOn">
-        <app-custom-modal></app-custom-modal>
-        <app-snack-bar></app-snack-bar>
-        <app-site-layout class="content"></app-site-layout>
-    </ng-container>
+  @if (isNetworkOn) {
+    <app-custom-modal></app-custom-modal>
+    <app-snack-bar></app-snack-bar>
+    <app-site-layout class="content"></app-site-layout>
+  }
 
-    <div *ngIf="!isNetworkOn" class="offline-content p-2 py-5 p-md-5">
-        <i class="fas fa-ghost icon"></i>
-        <div class="message py-2">
-            Ooops, you're Offline...
-        </div>
+  @if (!isNetworkOn) {
+    <div class="offline-content p-2 py-5 p-md-5">
+      <i class="fas fa-ghost icon"></i>
+      <div class="message py-2">
+        Ooops, you're Offline...
+      </div>
     </div>
+  }
 </div>
