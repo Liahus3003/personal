@@ -4,9 +4,10 @@ import { SnackBar } from './snack-bar.model';
 import { SnackBarService } from './snack-bar.service';
 
 @Component({
-  selector: 'app-snack-bar',
-  templateUrl: './snack-bar.component.html',
-  styleUrls: ['./snack-bar.component.less']
+    selector: 'app-snack-bar',
+    templateUrl: './snack-bar.component.html',
+    styleUrls: ['./snack-bar.component.less'],
+    standalone: true
 })
 export class SnackBarComponent implements OnInit, OnDestroy {
 

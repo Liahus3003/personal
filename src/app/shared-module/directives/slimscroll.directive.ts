@@ -110,9 +110,10 @@ const defaults: SlimScrollOptions = {
 };
 
 @Directive({
-  // tslint:disable-next-line:directive-selector
-  selector: "[slimScroll]",
-  exportAs: "slimScroll",
+    // tslint:disable-next-line:directive-selector
+    selector: "[slimScroll]",
+    exportAs: "slimScroll",
+    standalone: true,
 })
 export class SlimScrollDirective implements OnInit, OnDestroy {
   private _me!: HTMLElement;

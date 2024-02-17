@@ -12,15 +12,14 @@ import { SiteFooterComponent } from "./site-footer/site-footer.component";
 import { SiteHeaderComponent } from "./site-header/site-header.component";
 
 @NgModule({
-    declarations: [SiteHeaderComponent,
+    imports: [ContentRoutingModule, CommonModule, SiteHeaderComponent,
         SiteFooterComponent, SiteLayoutDashboardComponent,
         SiteLayoutMyProfileComponent,
         SiteLayoutAppreciationComponent,
         SiteLayoutServicesComponent,
         SiteLayoutNetworkComponent,
         SiteLayoutLocationsComponent,
-        ContentLayoutComponent,],
-    imports: [ContentRoutingModule, CommonModule]
+        ContentLayoutComponent]
 })
 
 export class ContentModule { }

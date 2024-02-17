@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { SiteLayoutService } from '@layout/site-layout.service';
 import { Course } from '../interfaces/course.interface';
+import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-learning-base',
-  templateUrl: './learning-base.component.html',
-  styleUrls: ['./learning-base.component.less']
+    selector: 'app-learning-base',
+    templateUrl: './learning-base.component.html',
+    styleUrls: ['./learning-base.component.less'],
+    standalone: true,
+    imports: [RouterLink]
 })
 export class LearningBaseComponent implements OnInit {
   courses: Course[] = [];

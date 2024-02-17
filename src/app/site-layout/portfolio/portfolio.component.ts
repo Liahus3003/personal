@@ -14,11 +14,22 @@ import { Award } from "./interface/award.interface";
 import { Education } from "./interface/education.interface";
 import { TechStack } from "./interface/tech-stack.interface";
 import { WorkExperience } from "./interface/work-experience.interface";
+import { FilterPipe } from "../../shared-module/pipes/filter.pipe";
+import { SortOrderPipe } from "../../shared-module/pipes/sort-order.pipe";
+import { DeferLoadDirective } from "../../shared-module/directives/animate-on-scroll.directive";
+import { NgClass } from "@angular/common";
 
 @Component({
-  selector: "app-portfolio",
-  templateUrl: "./portfolio.component.html",
-  styleUrls: ["./portfolio.component.less"],
+    selector: "app-portfolio",
+    templateUrl: "./portfolio.component.html",
+    styleUrls: ["./portfolio.component.less"],
+    standalone: true,
+    imports: [
+        NgClass,
+        DeferLoadDirective,
+        SortOrderPipe,
+        FilterPipe,
+    ],
 })
 export class PortfolioComponent implements OnInit {
   @ViewChild('recognitionsContainer', { read: ViewContainerRef, static: true}) recognitionsContainer!: ViewContainerRef;

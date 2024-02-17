@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-site-layout-appreciation',
-  templateUrl: './site-layout-appreciation.component.html',
-  styleUrls: ['./site-layout-appreciation.component.css']
+    selector: 'app-site-layout-appreciation',
+    templateUrl: './site-layout-appreciation.component.html',
+    styleUrls: ['./site-layout-appreciation.component.css'],
+    standalone: true
 })
 export class SiteLayoutAppreciationComponent implements OnInit {
 

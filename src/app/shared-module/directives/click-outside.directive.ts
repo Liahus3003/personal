@@ -2,7 +2,8 @@ import { Directive, ElementRef, Output, EventEmitter, OnInit, OnDestroy, HostLis
 
 // tslint:disable-next-line:directive-selector
 @Directive({
-    selector: '[appClickOutside]'
+    selector: '[appClickOutside]',
+    standalone: true
 })
 export class ClickOutsideDirective implements AfterViewInit, OnDestroy {
     constructor(private _elementRef: ElementRef) {

@@ -1,7 +1,8 @@
 import {Directive, ElementRef, EventEmitter, Output} from '@angular/core';
 
 @Directive({
-    selector: '[deferLoad]'
+    selector: '[deferLoad]',
+    standalone: true
 })
 export class DeferLoadDirective {
     @Output() public deferLoad: EventEmitter<any> = new EventEmitter();
